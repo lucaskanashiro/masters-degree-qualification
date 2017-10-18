@@ -1,0 +1,26 @@
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}[level distance=40mm,sibling distance=5mm]
+    \node (1) at (0,0) [draw,label=below left:{n=345}]{SCAM papers, 2001-2015};
+    \node (2) at (-2,-2) [draw,label=below left:{n=55}]{\textbf{MP}};
+    \node (3) at (2,-2) [draw, label=below left:{n=56}]{\textbf{MPBR}};
+    \node (4) at (0,-4) [draw,label=below left:{n=111}]{Abstract and conclusion review};
+    \node (5) at (0,-6) [draw,label=below left:{n=27}]{Included papers};
+
+    \draw (node cs:name=1,anchor=south) |- (-2,-1);
+    \draw (node cs:name=2,anchor=north) |- (0,-1);
+
+    \draw (node cs:name=1,anchor=south) |- (2,-1);
+    \draw (node cs:name=3,anchor=north) |- (0,-1);
+
+    \draw (node cs:name=2,anchor=south) |- (0,-3);
+    \draw (node cs:name=3,anchor=south) |- (0,-3);
+    \draw (node cs:name=4,anchor=north) |- (0,-3);
+
+    \draw (node cs:name=4,anchor=south) |- (0,-5);
+    \draw (node cs:name=5,anchor=north) |- (0,-5);
+
+  \end{tikzpicture}
+  \caption{Paper selection}
+  \label{fig:structured_review}
+\end{figure}
