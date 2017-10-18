@@ -19,7 +19,7 @@ pdf: $(BASE_NAME).pdf
 $(BASE_NAME).pdf: $(BASE_NAME).tex 
 	mkdir -p $(BUILD_DIR)
 	$(PDFLATEX) $<
-	#$(BIBTEX) $(BUILD_DIR)/$(BASE_NAME) 
+	$(BIBTEX) $(BUILD_DIR)/$(BASE_NAME) 
 	$(MAKEINDEX) $(BUILD_DIR)/$(BASE_NAME) 
 	$(PDFLATEX) $< 
 	$(PDFLATEX) $<
