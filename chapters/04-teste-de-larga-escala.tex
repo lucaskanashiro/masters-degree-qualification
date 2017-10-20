@@ -1,0 +1,76 @@
+\chapter{Teste de Performance em Larga Escala para Cidades Inteligentes}
+\label{cap:geracao_de_cenarios_de_teste}
+
+Neste trabalho defendemos que simuladores de Cidades Inteligentes são
+ferramentas capazes de realizar testes de performance em sistemas e aplicações
+para tal contexto. Para a execução de testes de performance com uma carga
+realista na escala de uma cidade podemos utilizar cenários complexos advindos
+de simuladores, onde picos de cargas e eventos inesperados podem ser
+contemplados.
+
+Testes de performance devem ser incorporados no ciclo desenvolvimento de
+sistemas e aplicações de Cidades Inteligentes, já que queremos que esses
+serviços atendam todos os interessado a qualquer momento. Entretanto, cidades
+estão inseridas em contextos dinâmicos e imprevisíveis, e gerar cargas que se
+assemelham ao que acontece no dia-a-dia é uma tarefa complexa. Como simuladores
+possuem modelos que visam representar a realidade, inclusive picos e
+acotecimentos inesperados, os mesmos se apresentam como uma solução. Com os
+dados de tais simulações espera-se realizar testes de carga, e que seja
+possível a identificaçõe de gargalos nos sistemas previamente, reduzindo o
+custo para correção e garantindo que os usuários terão uma boa experiência
+utilizando o serviço quando estiver em produção. Dependendo da implementação e
+implantação do sistema a ser testado, esses testes de carga podem se tornar
+testes de estresse podendo levar a problemas como \textit{crash} do sistema,
+nesse caso tal sistema não suportaria a carga gerada pela cidade em questão,
+necessitando de uma refatoração visando escalabilidade.
+
+Para realizar testes de performance em sistemas e aplicações em Cidades
+Inteligentes simuladores devem ser capazes de simular dispositivos de
+Internet das Coisas (\textit{IoT}) que monitorem e atuem no contexto da cidade;
+possuir modelos que representam o ambiente urbano de maneira realista,
+representando toda a dinâmica e peculiaridades da cidade; gerar massa de dados
+na escala da cidade; e conseguir se comunicar com os sistemas usando os seus
+respectivos protocolos. Com isso o simulador será capaz de gerar a carga
+necessária para realização dos testes. Simuladores já vêm sendo usados para
+teste de cenários complexos em outras áreas de pesquisa \cite{mclaren_1992}
+\cite{mccown_1996} \cite{dominguez_08} \cite{walker_1998}.
+
+Como prova de conceito da utilização de simuladores para a realização de testes
+de performance em sistemas e aplicações de Cidades Inteligentes, foi realizada
+uma integração inicial entre a plataforma InterSCity e o simulador
+InterSCSimulator. Nessa integração foi tratado um contexto específico, onde são
+simulados carros realizando viagens pela cidade e ao final de cada viagem o
+agente tenta encontrar uma vaga de estacionamento disponível mais próxima para
+estacionar.
+
+No decorrer deste capítulo serão apresentados I) a implementação desse novo
+cenário de simulação, contendo movimentação de carros pela cidade e procura de
+vagas de estacionamento e II) a integração preliminar do simulador e da
+plataforma com o que diz a esse novo cenário. Sendo assim possível realizar
+testes de performance na plataforma através do simulador.
+
+\section{Simulação de Múltiplos Domínios}
+
+O InterSCSimulator é um simulador \textit{Open-Source} e escalável para Cidades
+Inteligentes que tem como objetivo simular vários cenários complexos de larga
+escala \cite{santana_17}. Até o início deste trabalho apenas cenários de
+mobilidade eram suportados, ou seja, eram simuladas viagens de pessoas na
+cidade andando, de carro, ônibus e metrô. Durante o início desta pesquisa foi
+implementado um novo domínio que contempla a busca de vagas de estacionamento
+por carros ao final das suas viagens.
+
+
+
+\section{Integração entre InterSCSimulator e InterSCity}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/integration_get_data.png}
+	\caption{Integração para requisitar dados}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/integration_publish_data.png}
+	\caption{Integração para publicar dados}
+\end{figure}
