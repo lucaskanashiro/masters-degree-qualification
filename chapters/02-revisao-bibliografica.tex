@@ -1,5 +1,60 @@
-\chapter{Revisão Bibliográfica}
+\chapter{Fundamentação Teórica}
 \label{cap:revisao_bibliografica}
 
+Este trabalho visa apresentar uma forma de realizar testes de performance em
+larga escala para aplicações e sistemas dentro do contexto de uma Cidade
+Inteligente. Visando dar um embasamento teórico para o que será proposto, neste
+capítulo serão apresentados conceitos referentes a teste de software focando
+principalmente em testes de performance. Serão levantadas também singularidades
+no âmbito de Cidades Inteligentes, com o intuito de elucidar os problemas chave
+que este trabalho visa solucionar.
+
 \section{Teste de Software}
-\section{Teste no Contexto de Cidades Inteligentes}
+
+O software como qualquer outro produto desenvolvido a partir do trabalho
+humano é passível de conter falhas, defeitos e erros. As atividades de
+verificação e validação de software surgem para a identificação e correção
+desse problemas antes dos mesmos serem liberados para utilização
+\cite{teste_de_software}. Sendo assim, é uma forma de garantir a qualidade do
+software que está sendo desenvolvido.
+
+A verificação é um meio de garantir que o software está sendo feito
+corretamente, ou seja, é um processo de avaliar se foi feito o que foi
+planejado. Já a validação visa identificar se está sendo desenvolvido o
+software correto, sendo esse o software que o cliente ou usuário final deseja.
+Muitas vezes pode haver problemas já no levantamento dos requisitos, e com isso
+todas as verificações levarão a crer que o software está sendo desenvolvido
+corretamente, mas como a elicitação dos requisitos foi errônea o software
+desenvolvido não será o correto, levando o projeto de software ao fracasso.
+
+Atividades de verificação e validação devem ser realizadas durante todo o ciclo
+de desenvolvimento de software, passando desde de a elicitação de requisitos
+até a implantação do sistema. Dentre as técnicas usadas para a verificação e
+validação existem dinâmicas e estáticas, sendo que as dinâmicas necessitam da
+execução do software e as estáticas não. Um exemplo de técnica estática é a
+inspeção de software, que é um tipo particular de revisão que possui um
+processo de detecção de defeitos rigoroso e bem definido \cite{fagan_2002}. Por
+sua vez, o teste de software é uma atividade dinâmica, onde o seu intuito é
+executar o programa ou modelo utilizando algumas entradas em particular e
+verificar se seu comportamento está de acordo com o esperado
+\cite{teste_de_software}. A especificação desse comportamento esperado se dá
+em forma de requisitos funcionais e não funcionais do software.
+
+Teste de software é uma atividade complexa, portanto deve ser desenvolvida
+durante todo o ciclo de desenvolvimento \cite{teste_de_software}. Essa
+atividade, de forma geral, é dividida em fases de testes de unidade, teste de
+integração e teste de sistemas, onde cada uma tem um objetivo distinto
+\cite{teste_de_software}. Dentro de cada uma dessas fases são testados tanto
+requisitos funcionais, tratando o que o software deve fazer, quanto os não
+funcionais, que determina como o software deve realizar as suas atividades.
+No escopo deste trabalho iremos focar apenas nos testes de requisitos não
+funcionais, mais especificamente nos relacionados a performance.
+
+Além de performance, existem requisitos não funcionais de usabilidade,
+eficiência, confiabilidade, interoperabilidade, etc. \cite{pressman_2009}
+\cite{sommerville_2011}, estando esses fora de escopo desta pesquisa. Na
+próxima seção serão apresentados conceitos e características específicas de
+testes de performance, fazendo conexões com o cenário de Cidades Inteligentes.
+
+\section{Teste de Performance}
+
