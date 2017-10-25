@@ -52,3 +52,16 @@ ylab("Número de respostas com sucesso") + xlab("Tempo (segundos)") +
 theme(axis.text.x=element_blank(), axis.ticks.x=element_blank(), legend.position="none")
 dev.off()
 
+##############################################################################
+
+request <- data$request
+load <- as.data.frame(table(request))
+#print(throughput)
+
+theme_set(theme_gray(base_size = 18))
+png('load.png')
+ggplot(load, aes(request, Freq, fill="green")) + geom_bar(stat="identity", width=.4) +
+ylab("Requisições realizadas por segundo") + xlab("Tempo de simulação (segundos)") +
+theme(axis.text.x=element_blank(), axis.ticks.x=element_blank(), legend.position="none")
+dev.off()
+
