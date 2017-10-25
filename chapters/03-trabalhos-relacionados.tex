@@ -7,6 +7,33 @@
 
 \section{InterSCSimulator}
 
+O InterSCSimulator é um simulador \textit{open source} baseado em agentes para
+Cidades Inteligentes que oferece uma interface simples para definição de
+cenários de larga escala \cite{santana_17}. O simulador tem como objetivo
+simular vários cenários complexos de Cidades Inteligentes.
+
+Para atingir a escalabilidade mencionada, o simulador foi implementado usando a
+linguagem \textit{Erlang}. Essa é uma linguagem funcional que visa facilitar a
+implementação de aplicações de larga escala, paralelas e distribuídas. Algumas
+características herdadas do modelo de atores, que é implementado pelo
+\textit{Erlang}, são: paralelismo, execução distribuída, tolerância a falhas e
+protocolo de comunicação \cite{santana_17}.
+
+O simulador foi implementado em cima do simulador de âmbito geral
+\textit{Sim-Diasca}. A Figura \ref{fig:simulator_architecture} apresenta a
+arquitetura do simulador, onde em azul estão os diferentes tipos de agentes
+que podem existir na simulação e em vermelho a definição dos cenários de
+Cidades Inteligentes, tudo isso sendo executado no topo do simulador
+\textit{Sim-Diasca}.
+
+Na Figura \ref{fig:simulator_components}, são apresentados os componentes do
+simulador. Inicialmente são passadas entradas para a simulação, arquivos XML,
+que em conjunto formam o cenário a ser simulado, esse cenário é executado e a
+saída é criada com todos os eventos ocorridos na simulação. A partir dessa
+saída existe a possibilidade de geração de uma visualização em um mapa ou
+através de gráficos.
+
+
 \section{InterSCity}
 \label{sec:interscity}
 
