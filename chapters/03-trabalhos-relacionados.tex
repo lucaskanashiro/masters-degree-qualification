@@ -2,7 +2,72 @@
 \label{cap:trabalhos_relacionados}
 
 \section{Estratégias de Teste}
+
 \section{Integração de Simuladores}
+
 \section{InterSCSimulator}
+
 \section{InterSCity}
 \label{sec:interscity}
+
+A plataforma InterSCity é um projeto \textit{open source}, baseado em
+microserviços que visa permitir a pesquisa colaborativa, desenvolvimento e
+experimentos em Cidades Inteligentes \cite{arthur_17}. A plataforma foi
+desenvolvida baseada na arquitetura de referência para plataformas de Cidades
+Inteligentes apresentada em \cite{santana_2016}, ela provê um conjunto de
+serviços alto-nível baseado em núvem para gerenciar recursos \textit{IoT}
+(Internet das Coisas) heterogêneos \cite{arthur_17}.
+
+A plataforma visa atacar dois principais problemas arquiteturais para
+desenvolver uma plataforma de alta qualidade e que possa ser usada na p¿atica
+no contexto de Cidades Inteligentes: escalabilidade e evolutibilidade
+\cite{arthur_17}. Escalabilidade é necessário pelo fato da mesma ter que
+interagir com um grande número de dispositivos \textit{IoT} espalhados pela
+cidade, milhões de usuários e gigantesco tráfego de dados. Como as cidades são
+dinâmicas e mudam constantemente, a questão da evolutibilidade é essencial, já
+que requisitos podem surgir ou mudar a qualquer momento e evoluir a plataforma
+não deve ser um empecilho. Para resolver esses dois problemas apresentados
+\cite{arthur_17} adotou as seguintes estratégias:
+
+\begin{itemize}
+	\item Modularidade via serviços
+	\item Modelos e dados distribuídos
+	\item Evolução descentralizada
+	\item Reuso de projetos \textit{open source}
+	\item Adoção de padrões abertos
+	\item Comunicação síncrona e assíncrona
+	\item Serviços \textit{stateless}, que não mantêm estado
+\end{itemize}
+
+A Figura \ref{fig:platform_architecture} apresentada a arquitetura da
+plataforma InterSCSity. Atualmente, a mesma é composta de 6 microserviços:
+\textit{Resource Adaptor}, oferece uma abstração para comunicação com os
+dispositivos \textit{IoT}; \textit{Data Collector}, responsável por coletar os
+dados dos sensores conectados; \textit{Actuator Controller}, oferece uma
+interface para atuação junto aos dispositivos de \textit{IoT} com tais
+capacidades; \textit{Resource Catalog}, possui dados estáticos dos recursos da
+cidade cadastrados; \textit{Resource discovery}. provê um serviço de descoberta
+de recursos; e \textit{Resource Viewer}, disponibiliza uma visualização simples
+dos recursos da cidade. A plataforma visa facilitar a manipulação da
+infraestrutura de \textit{IoT} da cidade por aplicações desenvolvidas para a
+cidade.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/platform_architecture.png}
+	\caption{Arquitetura da plataforma InterSCity}
+	\label{fig:platform_architecture}
+\end{figure}
+
+A comunicação entre esses microserciços pode se dar de maneira síncrona ou
+assíncrona dependendo da situação. A comunicação síncrona é feita via API
+\textit{Restful}, ou seja, requisições \textit{HTTP}; e a assíncrona se dá via
+\textit{RabbitMQ}, uma implementação do protocolo AMQP, onde filas de
+mensangens assíncronas são gerenciadas.
+
+A plataforma traz uma abstração chamada \textit{Recurso}, que representa um
+recurso real da cidade, como ônibus, hospital, paradas de ônibus. Cada um
+desses \textit{Recursos} possuem \textit{Capacidades}, que pode ser de
+sensoriamento ou atuação, usualmente vinculados a algum tipo dispositivo
+\textit{IoT}, como capacidade de medir temperatura ou capacidade de mudar o
+estado de um semáforo.
