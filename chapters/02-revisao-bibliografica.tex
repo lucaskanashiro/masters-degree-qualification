@@ -31,7 +31,7 @@ Atividades de verificação e validação devem ser realizadas durante todo o ciclo
 de desenvolvimento de software, passando desde de a elicitação de requisitos
 até a implantação do sistema. Dentre as técnicas usadas para a verificação e
 validação existem dinâmicas e estáticas, sendo que as dinâmicas necessitam da
-execução do software e as estáticas não. Um exemplo de técnica estática é a
+]execução do software e as estáticas não. Um exemplo de técnica estática é a
 inspeção de software, que é um tipo particular de revisão que possui um
 processo de detecção de defeitos rigoroso e bem definido \cite{fagan_2002}. Por
 sua vez, o teste de software é uma atividade dinâmica, onde o seu intuito é
@@ -50,6 +50,19 @@ funcionais, que determina como o software deve realizar as suas atividades.
 No escopo deste trabalho iremos focar apenas nos testes de requisitos não
 funcionais, mais especificamente nos relacionados a performance.
 
+O teste de unidade tem como foco as menores unidades do programa, que podem
+ser funções, procedimentos, métodos ou classes \cite{teste_de_software}. Os
+testes de integração devem ser realizados depois dos testes de unidade, e nele
+a ênfase é dada na construção da estrutura do sistema \cite{teste_de_software},
+a medida que as partes do software vão ficando prontas é necessário garantir
+que a interação entre elas funciona. Após o software estiver completo, com
+todas as partes integradas, são realizados os testes de sistema. O principal
+objetivo do teste de sistema é verificar se as funcionalidades especificadas
+nos documentos de requisitos estão todas corretamente implementadas
+\cite{teste_de_software}. Neste trabalho focaremos nos testes de sistema,
+onde o sistema já possui uma versão funcional e testaremos a peformance do
+mesmo na escala de uma cidade.
+
 Além de performance, existem requisitos não funcionais de usabilidade,
 eficiência, confiabilidade, interoperabilidade, etc. \cite{pressman_2009}
 \cite{sommerville_2011}, estando esses fora de escopo desta pesquisa. Na
@@ -57,4 +70,79 @@ próxima seção serão apresentados conceitos e características específicas de
 testes de performance, fazendo conexões com o cenário de Cidades Inteligentes.
 
 \section{Teste de Performance}
+\label{sec:analise_performance}
+
+Performance é um critério chave no projeto, aquisição, e uso de sistemas
+computacionais \cite{bukh_1992}. Alguns critérios de performance, como o tempo
+de resposta, são reconhecidos como componentes importantes em algumas
+aplicações de usabilidade e estudos de fatores humanos \cite{goodwin_1987}
+\cite{nielsen_1994} \cite{shneiderman_1991} \cite{shneidermaan_2016}. Tendo
+isso em vista, especificar e avaliar requisitos de performance em uma aplicação
+ou sistema para Cidades Inteligentes tem relação direta com o uso ou não dessas
+ferramentas para a melhora da qualidade de vida dos cidadãos ou otimização dos
+recursos da cidade, já que longos tempos de resposta do sistema podem causar
+menor satisfação e baixa produtividade entre os usuários \cite{hoxmeier_2000}.
+
+Muitas vezes o processo de teste de performance é feito apenas antes da
+implantação do software e de maneira desestruturada, entretanto, esses tipo de
+teste deve ser feito durante todo o ciclo de desenvolvimento, visando encontrar
+possíveis gargalos e refatorações previamente, já que quanto antes encontrar
+problemas, menor será o custo para solucioná-los. Segundo \cite{bukh_1992},
+existem alguns passos para a realização de um teste de performance, esses
+passos são apresentados a seguir.
+
+\begin{enumerate}
+	\item Definir metas e limites do sistema.
+
+	\item Listar os serviços do sistema e possíveis saídas.
+
+	\item Selecionar métricas de performance.
+
+	\item Listar os parâmetros do sistema e a carga de trabalho.
+
+	\item Selecionar fatores e seus valores.
+
+	\item Selecionar técnicas de avaliação.
+
+	\item Selecionar carga de trabalho.
+
+	\item Projetar experimentos.
+
+	\item Analisar e interpretar os dados.
+	
+	\item Apresentar os resultados. Reiniciar o processo se necessário.
+\end{enumerate}
+
+A definição das metas e limites do sistema e listagem dos serviços providos
+afetarão tanto a escolha das métricas quanto o carga a ser utilizada, portanto
+devem ser os primeiros passos antes da realização do teste, estando esses
+alinhados com os requisitos de performance. A seleção das métricas de
+performance usualmente seguirá o que foi especificado nos requisitos de
+performance, sendo esse um critério de comparação com outros sistemas também,
+alguns exemplos são tempo de resposta (\textit{response time}) e taxa de vazão
+(\textit{throughput}).  Para haver um ambiente controlado, é necessário saber
+quais parâmetros podem influenciar a performance do sistema, e com isso
+determinar os fatores que podem ser variados durante os testes. Com isso é
+possível realizar a seleção da técnica de avaliação, existem três técnicas
+amplamente usadas, sendo elas: modelagem analítica, simulação e medição de
+sistema real \cite{bukh_1992}; e da carga de trabalho, que deve ser condizente
+com a carga real que o mesmo sofrerá. O experimento de teste deve ser projetado
+de modo que ao final ofereça o máximo de informações com o menor custo
+\cite{bukh_1992}. Ao final, os resultados coletados dos testes devem ser
+analisados e apresentados aos interessados, podendo assim ser identificados
+gargalos no sistema ou simplesmente garantir que os requisitos de performance
+estão sendo contemplados.
+
+Neste trabalho iremos propor uma estratégia de integração entre sistemas e
+aplicações e simuladores de Cidades Inteligentes, com o intuito de permitir
+a realização de testes de performance em larga escala. Portanto, utilizaremos
+a técnica de simulação para a avaliação de performance, e a carga será gerada
+através de simulações realizadas com dados históricos da cidade, visando tornar
+o cenário de teste realista. Pelo fato de cada cidade ter o seu contexto e suas
+especificidades, defendemos que a geração de uma carga de trabalho realista é
+um desafio, e a simulação é uma forma de solucionarmos esse problema.
+Portanto, a proposta desta pesquisa visa auxiliar principalmente os passos 6 e
+7 apresentados anteriormente. Os outros passos variarão de acordo com o sistema
+a ser avaliado, requisitos, objetivo do teste, e outros fatores, sendo esses de
+responsabilidade de quem irá conduzir os testes.
 
