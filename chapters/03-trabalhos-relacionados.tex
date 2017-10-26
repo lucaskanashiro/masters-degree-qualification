@@ -1,7 +1,47 @@
 \chapter{Trabalhos Relacionados}
 \label{cap:trabalhos_relacionados}
 
-\section{Estratégias de Teste}
+Neste capítulo serão apresentados alguns trabalhos realizados acerca de
+formas de realizar testes de desempenho em aplicações de \textit{IoT} e mais
+especificamente Cidades Inteligentes. Além disso, algumas abordagens para
+integrações de simuladores serão listadas. Alguns aspectos importantes do
+simulador InterSCSimulator e a plataforma InterSCity para Cidades Inteligentes
+serão expostos ao final, já que a prova de conceito realizada consiste na
+integração de ambos.
+
+\section{Estratégias de Teste para Sistemas de Cidades Inteligentes}
+
+No contexto de Cidades Inteligentes existem algumas iniciativas para permitir
+testes de aplicações, entretanto, boa parte das soluções propostas envolvem
+a implantação de um ambiente real com dispositivos de \textit{IoT}. Os
+trabalhos apresentados em \cite{galache_2012} \cite{nati_2013}
+\cite{olivares_2013} trazem ambientes de teste reais (\textit{testbeds}), onde
+aplicações e sistemas poderiam ser testados, contudo tais infraestruturas não
+conseguem se aproximar do cenário real de uma metrópole por exemplo, ademais, o
+custo e esforço de implementação são altos. Em \cite{mwangama_2013} foram
+realizados experimentos sobre a confiabilidade da comunicação M2M
+(\textit{Machine-to-Machine}) em um ambiente de teste federado, envolvendo as
+cidades de Berlin e Cidade do Cabo, entretanto, o custo e a complexidade para a
+configuração de tal ambiente não são baixos.
+
+Algumas pesquisas sobre estratégias de teste para aplicações de \textit{IoT}
+também poderiam ser aplicadas a Cidades Inteligentes. \cite{adjih_2015}
+apresenta um ambiente para realização de experimentos aberto para aplicações de
+\textit{IoT} no âmbito de redes de sensores sem fio, no trabalho os autores
+defendem que suportam testes de larga escala, entretanto o ambiente contem
+menos de três mil nós na rede e um pouco mais de cem robos se movendo. Levando
+em consideração que em uma cidade esperamos ter na casa de milhões de sensores,
+tal ambiente de teste não pode ser considerado algo realista. Existem trabalhos
+voltados para \textit{benchmarks} de \textit{IoT} de tempo real, com foco no
+teste de plataformas de processamento de \textit{stream} de dados distribuído,
+como \cite{shukla_2017} \cite{shukla_2016}. Esses trabalhos realizam testes
+de carga nessas plataformas, mas os mesmos não contemplam peculiaridades de uma
+cidade, como picos de carga e eventos inesperados.
+
+\cite{zyrianoff_2017} apresenta um gerador de tráfego de \textit{IoT} para
+Cidades Inteligentes, onde simulam sensores para geração de cargas de larga
+escala. Tal trabalho se assemelha com o aqui apresentado, todavia o mesmo não
+contempla a simulação de atuadores na cidade.
 
 \section{Integração de Simuladores}
 
