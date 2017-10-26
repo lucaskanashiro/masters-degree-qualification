@@ -102,8 +102,11 @@ cidade.
 A comunicação entre esses microserciços pode se dar de maneira síncrona ou
 assíncrona dependendo da situação. A comunicação síncrona é feita via API
 \textit{Restful}, ou seja, requisições \textit{HTTP}; e a assíncrona se dá via
-\textit{RabbitMQ}, uma implementação do protocolo AMQP, onde filas de
-mensangens assíncronas são gerenciadas.
+\textit{RabbitMQ}, uma implementação do protocolo AMQP, onde o objetivo desse
+protocolo é criar um padrão aberto para troca de mensagens assíncronas
+interoperável e de larga escala \cite{vinoski_2006}. A principal vantagem dele
+é permitir que o \textit{broker} faça as decisões de roteamento, não
+necessitando a aplicação ter conhecimento desse processo \cite{vinoski_2006}.
 
 A plataforma traz uma abstração chamada \textit{Recurso}, que representa um
 recurso real da cidade, como ônibus, hospital, paradas de ônibus. Cada um
