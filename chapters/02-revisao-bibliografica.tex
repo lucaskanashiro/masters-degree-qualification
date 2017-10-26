@@ -1,11 +1,11 @@
 \chapter{Fundamentação Teórica}
 \label{cap:revisao_bibliografica}
 
-Este trabalho visa apresentar uma forma de realizar testes de performance em
+Este trabalho visa apresentar uma forma de realizar testes de desempenho em
 larga escala para aplicações e sistemas dentro do contexto de uma Cidade
 Inteligente. Visando dar um embasamento teórico para o que será proposto, neste
 capítulo serão apresentados conceitos referentes a teste de software focando
-principalmente em testes de performance. Serão levantadas também singularidades
+principalmente em testes de desempenho. Serão levantadas também singularidades
 no âmbito de Cidades Inteligentes, com o intuito de elucidar os problemas chave
 que este trabalho visa solucionar.
 
@@ -48,7 +48,7 @@ integração e teste de sistemas, onde cada uma tem um objetivo distinto
 requisitos funcionais, tratando o que o software deve fazer, quanto os não
 funcionais, que determina como o software deve realizar as suas atividades.
 No escopo deste trabalho iremos focar apenas nos testes de requisitos não
-funcionais, mais especificamente nos relacionados a performance.
+funcionais, mais especificamente nos relacionados a desempenho.
 
 O teste de unidade tem como foco as menores unidades do programa, que podem
 ser funções, procedimentos, métodos ou classes \cite{teste_de_software}. Os
@@ -63,32 +63,32 @@ nos documentos de requisitos estão todas corretamente implementadas
 onde o sistema já possui uma versão funcional e testaremos a peformance do
 mesmo na escala de uma cidade.
 
-Além de performance, existem requisitos não funcionais de usabilidade,
+Além de desempenho, existem requisitos não funcionais de usabilidade,
 eficiência, confiabilidade, interoperabilidade, etc. \cite{pressman_2009}
 \cite{sommerville_2011}, estando esses fora de escopo desta pesquisa. Na
 próxima seção serão apresentados conceitos e características específicas de
-testes de performance, fazendo conexões com o cenário de Cidades Inteligentes.
+testes de desempenho, fazendo conexões com o cenário de Cidades Inteligentes.
 
-\section{Teste de Performance}
+\section{Teste de Desempenho}
 \label{sec:analise_performance}
 
-Performance é um critério chave no projeto, aquisição, e uso de sistemas
-computacionais \cite{bukh_1992}. Alguns critérios de performance, como o tempo
+desempenho é um critério chave no projeto, aquisição, e uso de sistemas
+computacionais \cite{bukh_1992}. Alguns critérios de desempenho, como o tempo
 de resposta, são reconhecidos como componentes importantes em algumas
 aplicações de usabilidade e estudos de fatores humanos \cite{goodwin_1987}
 \cite{nielsen_1994} \cite{shneiderman_1991} \cite{shneidermaan_2016}. Tendo
-isso em vista, especificar e avaliar requisitos de performance em uma aplicação
+isso em vista, especificar e avaliar requisitos de desempenho em uma aplicação
 ou sistema para Cidades Inteligentes tem relação direta com o uso ou não dessas
 ferramentas para a melhora da qualidade de vida dos cidadãos ou otimização dos
 recursos da cidade, já que longos tempos de resposta do sistema podem causar
 menor satisfação e baixa produtividade entre os usuários \cite{hoxmeier_2000}.
 
-Muitas vezes o processo de teste de performance é feito apenas antes da
+Muitas vezes o processo de teste de desempenho é feito apenas antes da
 implantação do software e de maneira desestruturada, entretanto, esses tipo de
 teste deve ser feito durante todo o ciclo de desenvolvimento, visando encontrar
 possíveis gargalos e refatorações previamente, já que quanto antes encontrar
 problemas, menor será o custo para solucioná-los. Segundo \cite{bukh_1992},
-existem alguns passos para a realização de um teste de performance, esses
+existem alguns passos para a realização de um teste de desempenho, esses
 passos são apresentados a seguir.
 
 \begin{enumerate}
@@ -96,7 +96,7 @@ passos são apresentados a seguir.
 
 	\item Listar os serviços do sistema e possíveis saídas.
 
-	\item Selecionar métricas de performance.
+	\item Selecionar métricas de desempenho.
 
 	\item Listar os parâmetros do sistema e a carga de trabalho.
 
@@ -116,12 +116,12 @@ passos são apresentados a seguir.
 A definição das metas e limites do sistema e listagem dos serviços providos
 afetarão tanto a escolha das métricas quanto o carga a ser utilizada, portanto
 devem ser os primeiros passos antes da realização do teste, estando esses
-alinhados com os requisitos de performance. A seleção das métricas de
-performance usualmente seguirá o que foi especificado nos requisitos de
-performance, sendo esse um critério de comparação com outros sistemas também,
+alinhados com os requisitos de desempenho. A seleção das métricas de
+desempenho usualmente seguirá o que foi especificado nos requisitos de
+desempenho, sendo esse um critério de comparação com outros sistemas também,
 alguns exemplos são tempo de resposta (\textit{response time}) e taxa de vazão
 (\textit{throughput}).  Para haver um ambiente controlado, é necessário saber
-quais parâmetros podem influenciar a performance do sistema, e com isso
+quais parâmetros podem influenciar a desempenho do sistema, e com isso
 determinar os fatores que podem ser variados durante os testes. Com isso é
 possível realizar a seleção da técnica de avaliação, existem três técnicas
 amplamente usadas, sendo elas: modelagem analítica, simulação e medição de
@@ -130,13 +130,13 @@ com a carga real que o mesmo sofrerá. O experimento de teste deve ser projetado
 de modo que ao final ofereça o máximo de informações com o menor custo
 \cite{bukh_1992}. Ao final, os resultados coletados dos testes devem ser
 analisados e apresentados aos interessados, podendo assim ser identificados
-gargalos no sistema ou simplesmente garantir que os requisitos de performance
+gargalos no sistema ou simplesmente garantir que os requisitos de desempenho
 estão sendo contemplados.
 
 Neste trabalho iremos propor uma estratégia de integração entre sistemas e
 aplicações e simuladores de Cidades Inteligentes, com o intuito de permitir
-a realização de testes de performance em larga escala. Portanto, utilizaremos
-a técnica de simulação para a avaliação de performance, e a carga será gerada
+a realização de testes de desempenho em larga escala. Portanto, utilizaremos
+a técnica de simulação para a avaliação de desempenho, e a carga será gerada
 através de simulações realizadas com dados históricos da cidade, visando tornar
 o cenário de teste realista. Pelo fato de cada cidade ter o seu contexto e suas
 especificidades, defendemos que a geração de uma carga de trabalho realista é
