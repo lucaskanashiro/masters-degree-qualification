@@ -9,6 +9,8 @@ principalmente em testes de desempenho. Serão levantadas também singularidades
 no âmbito de Cidades Inteligentes, com o intuito de elucidar os problemas chave
 que este trabalho visa solucionar.
 
+\section{Cidades Inteligentes}
+
 \section{Teste de Software}
 
 O software como qualquer outro produto desenvolvido a partir do trabalho
@@ -30,15 +32,15 @@ desenvolvido não será o correto, levando o projeto de software ao fracasso.
 Atividades de verificação e validação devem ser realizadas durante todo o ciclo
 de desenvolvimento de software, passando desde de a elicitação de requisitos
 até a implantação do sistema. Dentre as técnicas usadas para a verificação e
-validação existem dinâmicas e estáticas, sendo que as dinâmicas necessitam da
-]execução do software e as estáticas não. Um exemplo de técnica estática é a
-inspeção de software, que é um tipo particular de revisão que possui um
-processo de detecção de defeitos rigoroso e bem definido \cite{fagan_2002}. Por
-sua vez, o teste de software é uma atividade dinâmica, onde o seu intuito é
-executar o programa ou modelo utilizando algumas entradas em particular e
-verificar se seu comportamento está de acordo com o esperado
-\cite{teste_de_software}. A especificação desse comportamento esperado se dá
-em forma de requisitos funcionais e não funcionais do software.
+validação existem as dinâmicas e as estáticas, sendo que as dinâmicas
+necessitam da execução do software e as estáticas não. Um exemplo de técnica
+estática é a inspeção de software, que é um tipo particular de revisão que
+possui um processo de detecção de defeitos rigoroso e bem definido
+\cite{fagan_2002}. Por sua vez, o teste de software é uma atividade dinâmica,
+onde o seu intuito é executar o programa ou modelo utilizando algumas entradas
+em particular e verificar se seu comportamento está de acordo com o esperado
+\cite{teste_de_software}. A especificação desse comportamento esperado se dá em
+forma de requisitos funcionais e não funcionais do software.
 
 Teste de software é uma atividade complexa, portanto deve ser desenvolvida
 durante todo o ciclo de desenvolvimento \cite{teste_de_software}. Essa
@@ -72,7 +74,7 @@ testes de desempenho, fazendo conexões com o cenário de Cidades Inteligentes.
 \section{Teste de Desempenho}
 \label{sec:analise_performance}
 
-desempenho é um critério chave no projeto, aquisição, e uso de sistemas
+Desempenho é um critério chave no projeto, aquisição, e uso de sistemas
 computacionais \cite{bukh_1992}. Alguns critérios de desempenho, como o tempo
 de resposta, são reconhecidos como componentes importantes em algumas
 aplicações de usabilidade e estudos de fatores humanos \cite{goodwin_1987}
@@ -86,10 +88,10 @@ menor satisfação e baixa produtividade entre os usuários \cite{hoxmeier_2000}.
 Muitas vezes o processo de teste de desempenho é feito apenas antes da
 implantação do software e de maneira desestruturada, entretanto, esses tipo de
 teste deve ser feito durante todo o ciclo de desenvolvimento, visando encontrar
-possíveis gargalos e refatorações previamente, já que quanto antes encontrar
-problemas, menor será o custo para solucioná-los. Segundo \cite{bukh_1992},
-existem alguns passos para a realização de um teste de desempenho, esses
-passos são apresentados a seguir.
+possíveis gargalos ainda durante a implementação do software, já que quanto
+antes encontrar problemas, menor será o custo para solucioná-los. Segundo
+\cite{bukh_1992}, existem alguns passos para a realização de um teste de
+desempenho, esses passos são apresentados a seguir.
 
 \begin{enumerate}
 	\item Definir metas e limites do sistema.
@@ -118,12 +120,12 @@ afetarão tanto a escolha das métricas quanto o carga a ser utilizada, portanto
 devem ser os primeiros passos antes da realização do teste, estando esses
 alinhados com os requisitos de desempenho. A seleção das métricas de
 desempenho usualmente seguirá o que foi especificado nos requisitos de
-desempenho, sendo esse um critério de comparação com outros sistemas também,
+desempenho, sendo esse um critério de comparação com outros sistemas,
 alguns exemplos são tempo de resposta (\textit{response time}) e taxa de vazão
 (\textit{throughput}).  Para haver um ambiente controlado, é necessário saber
 quais parâmetros podem influenciar a desempenho do sistema, e com isso
 determinar os fatores que podem ser variados durante os testes. Com isso é
-possível realizar a seleção da técnica de avaliação, existem três técnicas
+possível realizar a seleção da técnica de avaliação, existindo três técnicas
 amplamente usadas, sendo elas: modelagem analítica, simulação e medição de
 sistema real \cite{bukh_1992}; e da carga de trabalho, que deve ser condizente
 com a carga real que o mesmo sofrerá. O experimento de teste deve ser projetado

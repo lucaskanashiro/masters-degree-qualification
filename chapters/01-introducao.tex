@@ -12,27 +12,28 @@ cidades.
 Contudo, tais sistemas e aplicações devem ser capazes de atender os requisitos
 de uma cidade. Pensando em uma metrópole, como São Paulo, milhares de recursos
 devem ser monitorados e gerenciados em tempo real; dispositivos de Internet das
-Coisas (\textit{Internet of Things - IoT}), que estarão monitorando a cidade,
-enviarão dados a todo momento e concorrentemente; cidadãos da cidade poderão
-requisitar esses serviços a qualquer hora do dia; além de outros requisitos
-funcionais e não-funcionais que surgirão com o decorrer do tempo.
+Coisas (\textit{Internet of Things - IoT}), que monitorarão a cidade e enviarão
+dados a todo momento concorrentemente; cidadãos poderão requisitar esses
+serviços a qualquer hora do dia; além de outros requisitos funcionais e
+não-funcionais que surgirão com o decorrer do tempo.
 
-Para garantir que os requisitos estão sendo contemplados, devem ser realizadas
-atividades de validação, verificação e teste. Entretanto, algumas estratégias
-comumente utilizadas podem não representar o real ambiente de produção, pois
-metrópoles com milhares de habitantes e recursos gerarão cargas diferentes no
-sistema dependendo do que acontece na cidade. O teste de cenários mais próximos
-da realidade das cidades são necessários para que haja de fato a garantia de
-funcionamento do sistema em tais condições. Segundo \cite{adrion_1982}, a
-realização de simulações é uma ferramenta útil nesse processo, onde cenários
-mais realistas e na escala de uma cidade podem ser criados.
+Para garantir que os requisitos das aplicações e serviços estão sendo
+contemplados, devem ser realizadas atividades de validação, verificação e
+teste. Entretanto, algumas estratégias comumente utilizadas podem não
+representar o real ambiente de produção, pois metrópoles com milhares de
+habitantes e recursos gerarão cargas diferentes no sistema dependendo do que
+acontece na cidade. O teste de cenários mais próximos da realidade das cidades
+são necessários para que haja de fato a garantia de funcionamento do sistema em
+tais condições. Segundo \cite{adrion_1982}, a realização de simulações é uma
+ferramenta útil nesse processo, onde cenários mais realistas e na escala de uma
+cidade podem ser criados.
 
 Além disso, esses testes com cenários realistas, gerados através de simulações,
 podem auxiliar no desenvolvimento de pesquisas. Sabendo que a reproducibilidade
-de experimentos é algo esperado no meio acadêmico, esses cenários que são
-controlados podem garantir que experimentos que envolvam sistemas e aplicações
-possam ser verificados por terceiros. Já que ambientes de testes reais em
-cidades são imprevisíveis devido a dinâmica do dia-a-dia.
+de experimentos é algo esperado no meio acadêmico, esses cenários controlados
+podem garantir que experimentos que envolvam sistemas e aplicações possam ser
+verificados por terceiros. Já que ambientes de testes reais em cidades são
+imprevisíveis devido a dinâmica do dia-a-dia.
 
 Com o objetivo de viabilizar testes e experimentações de sistemas e aplicações
 para Cidades Inteligentes com cenários mais realistas, este trabalho visa
@@ -41,15 +42,15 @@ apresentados em \cite{neirotti_2014}, em simuladores e plataformas de Cidades
 Inteligentes.
 
 Como prova de conceito será apresentada uma integração inicial do simulador
-InterSCSimulator e da plataforma InterSCity para Cidade Inteligentes. O
-simulador é capaz de simular a movimentação de carros em uma cidade, e foi
-implementado no mesmo a simulação de busca de vagas de estacionamentos após o
-término das viagens. Por sua vez, a plataforma possui a funcionalidade de
-descoberta de recursos na cidade, e foi utilizada para encontrar as vagas
-próximas do destino de cada agente da simulação. Além disso, o simulador
-atualiza o estado de todas as vagas (ocupada ou livre) na plataforma em tempo
-de simulação. O método de integração ainda será evoluído e validado com a
-integração de outro domínio no decorrer do trabalho.
+InterSCSimulator \cite{santata_17} e da plataforma InterSCity \cite{arthur_17}
+para Cidade Inteligentes. O simulador é capaz de simular a movimentação de
+carros em uma cidade, e foi implementado no mesmo a simulação de busca de vagas
+de estacionamentos após o término das viagens. Por sua vez, a plataforma possui
+a funcionalidade de descoberta de recursos na cidade, e foi utilizada para
+encontrar as vagas próximas do destino de cada agente da simulação. Além disso,
+o simulador atualiza o estado de todas as vagas (ocupada ou livre) na
+plataforma em tempo de simulação. O método de integração ainda será evoluído e
+validado com a integração de outro domínio no decorrer do trabalho.
 
 
 \section{Motivação}
@@ -57,7 +58,7 @@ integração de outro domínio no decorrer do trabalho.
 Permitir que sistemas e aplicações de Cidades Inteligentes possam ser testadas
 com cenários realistas em larga escala sem a necessidade de implantação de uma
 infraestrutura física (instalação de sensores e atuadores, configuração de rede
-de sensores e etc.), é um dos motes dessa pesquisa. Tendo em vista que a
+de sensores e etc.), é o principal objetivo dessa pesquisa. Tendo em vista que a
 implantação desse tipo de infraestrutura esbarra em burocracias e falta de
 investimento por parte de governos. Além disso, infraestruturas de menor escala
 não são cenários realistas para esse tipo de sistema e aplicação.
@@ -80,7 +81,8 @@ O objetivo deste trabalho é definir uma metodologia para integração de
 simuladores e plataformas para Cidades Inteligentes, a fim de viabilizar testes
 realistas de larga escala através de simulações da cidade. Como validação dessa
 metodologia serão integrados o simulador InterSCSimulator e a plataforma
-InterSCity, e implementados cenários contendo múltiplos domínios da cidade.
+InterSCity, e implementados cenários contendo múltiplos domínios de Cidades
+Inteligentes.
 
 O primeiro desafio está relacionado com a integração de sistemas. Como
 apresentado por \cite{wasserman_1990}, a integração de sistemas possuem três
