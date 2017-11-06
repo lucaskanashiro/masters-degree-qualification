@@ -1,54 +1,58 @@
 \chapter{Fundamentação Teórica}
 \label{cap:revisao_bibliografica}
 
-Este trabalho visa apresentar uma forma de realizar testes de desempenho em
-larga escala para aplicações e sistemas dentro do contexto de uma Cidade
-Inteligente. Visando dar um embasamento teórico para o que será proposto, neste
-capítulo serão apresentados conceitos referentes a teste de software focando
-principalmente em testes de desempenho. Serão levantadas também singularidades
-no âmbito de Cidades Inteligentes, com o intuito de elucidar os problemas chave
-que este trabalho visa solucionar.
+Neste capítulo serão apresentados alguns conceitos acerca de Cidades
+Inteligentes e testes de software, com foco em teste e experimentos de
+desempenho. %Algumas singularidades no âmbito de Cidades Inteligentes e testes
+
+%Este trabalho visa apresentar uma forma de realizar testes de desempenho em
+%larga escala para aplicações e sistemas dentro do contexto de uma Cidade
+%Inteligente. Visando dar um embasamento teórico para o que será proposto, neste
+%capítulo serão apresentados conceitos referentes a teste de software focando
+%principalmente em testes de desempenho. Serão levantadas também singularidades
+%no âmbito de Cidades Inteligentes, com o intuito de elucidar os problemas chave
+%que este trabalho visa solucionar.
 
 \section{Cidades Inteligentes}
 
 As cidades atuais são sistemas complexos que são caracterizados por grande
 número de cidadãos interconectados, negócios, diferentes modos de transporte,
-redes de comunicação, serviços e laços \cite{neirotti_2014}. O rápido
-crescimento enfrentado por várias cidades gerou congestionamento do tráfego,
-poluição e aumento da desigualdade social \cite{kim_2012}. Portanto, Cidades
-Inteligentes emergem como um novo paradigma visando atacar esses problemas
-usando os recursos da cidade de forma eficiente e prestando serviços de
-qualidade para seus cidadãos \cite{arthur_17}.
+redes de comunicação, serviços e laços~\cite{neirotti_2014}. O rápido
+crescimento enfrentado por várias cidades gerou congestionamentos, poluição e
+aumento da desigualdade social~\cite{kim_2012}. Cidades Inteligentes emergem
+como um novo paradigma visando atacar esses problemas usando os recursos da
+cidade de forma eficiente e prestando serviços de qualidade para seus
+cidadãos~\cite{arthur_17}.
 
 As Cidades Inteligentes são caracterizadas pela adoção de Tecnologias de
 Informação e Comunicação (TIC) como parte integrante da infraestrutura da
-cidade para suportar soluções múltiplas para desafios urbanos
-\cite{neirotti_2014}. Atualmente existem várias solução para Cidades
+cidade para suportar soluções múltiplas para desafios
+urbanos~\cite{neirotti_2014}. Atualmente existem várias solução para Cidades
 Inteligentes que focam em um domínio específico, como mobilidade urbana e
-sistema de saúde. Visando solucionar o problema citado algumas pesquisas
-apontam o uso de plataformas de software para Cidades Inteligentes, sendo essas
-plataformas um ambiente de \textit{middleware} integrado que oferece suporte a
+sistema de saúde. Visando solucionar esse problema, algumas pesquisas apontam o
+uso de plataformas de software para Cidades Inteligentes, sendo essas
+ambientew de \textit{middleware} integrado que oferecem suporte a
 desenvolvedores de software no projeto, implementação, implantação e
-gerenciamento de aplicativos para Cidades Inteligentes \cite{santana_2016}.
+gerenciamento de aplicativos para Cidades Inteligentes~\cite{santana_2016}.
 Independente do foco da aplicação, a mesma deve ser capaz de suportar cargas
-geradas por uma cidade e para garantir isso devemos realizar testes de
-software, visando principalmente o desempenho.
+geradas por uma cidade e para garantir isso devemos realizar testes e
+experimentos visando principalmente o desempenho.
 
 \section{Teste de Software}
 
 O software como qualquer outro produto desenvolvido a partir do trabalho
-humano é passível de conter falhas, defeitos e erros. As atividades de
-verificação e validação de software surgem para a identificação e correção
-desse problemas antes dos mesmos serem liberados para utilização
-\cite{teste_de_software}. Sendo assim, é uma forma de garantir a qualidade do
-software que está sendo desenvolvido.
+humano é passível de conter falhas, defeitos e erros~\cite{teste_de_software}.
+As atividades de verificação e validação de software surgem para a
+identificação e correção desse problemas antes dos mesmos serem liberados para
+utilização~\cite{teste_de_software}. Sendo assim, é uma forma de garantir a
+qualidade do software que está sendo desenvolvido.
 
 A verificação é um meio de garantir que o software está sendo feito
-corretamente, ou seja, é um processo de avaliar se foi feito o que foi
-planejado. Já a validação visa identificar se está sendo desenvolvido o
-software correto, sendo esse o software que o cliente ou usuário final deseja.
-Muitas vezes pode haver problemas já no levantamento dos requisitos, e com isso
-todas as verificações levarão a crer que o software está sendo desenvolvido
+corretamente, ou seja, é avaliar se foi feito o que foi planejado. Já a
+validação visa identificar se está sendo desenvolvido o software correto, sendo
+esse o software que o cliente ou usuário final deseja.  Muitas vezes podem
+haver problemas já no levantamento dos requisitos, e com isso todas as
+verificações levarão a crer que o software está sendo desenvolvido
 corretamente, mas como a elicitação dos requisitos foi errônea o software
 desenvolvido não será o correto, levando o projeto de software ao fracasso.
 
@@ -56,22 +60,23 @@ Atividades de verificação e validação devem ser realizadas durante todo o ciclo
 de desenvolvimento de software, passando desde de a elicitação de requisitos
 até a implantação do sistema. Dentre as técnicas usadas para a verificação e
 validação existem as dinâmicas e as estáticas, sendo que as dinâmicas
-necessitam da execução do software e as estáticas não. Um exemplo de técnica
-estática é a inspeção de software, que é um tipo particular de revisão que
-possui um processo de detecção de defeitos rigoroso e bem definido
-\cite{fagan_2002}. Por sua vez, o teste de software é uma atividade dinâmica,
-onde o seu intuito é executar o programa ou modelo utilizando algumas entradas
-em particular e verificar se seu comportamento está de acordo com o esperado
-\cite{teste_de_software}. A especificação desse comportamento esperado se dá em
-forma de requisitos funcionais e não funcionais do software.
+necessitam da execução do software e as estáticas não~\cite{teste_de_software}.
+Um exemplo de técnica estática é a inspeção de software, que é um tipo
+particular de revisão que possui um processo de detecção de defeitos rigoroso e
+bem definido~\cite{fagan_2002}. Por sua vez, o teste de software é uma
+atividade dinâmica, onde o seu intuito é executar o programa ou modelo
+utilizando algumas entradas em particular e verificar se seu comportamento está
+de acordo com o esperado~\cite{teste_de_software}. A especificação desse
+comportamento esperado se dá em forma de requisitos funcionais e não funcionais
+do software.
 
 Teste de software é uma atividade complexa, portanto deve ser desenvolvida
-durante todo o ciclo de desenvolvimento \cite{teste_de_software}. Essa
-atividade, de forma geral, é dividida em fases de testes de unidade, teste de
-integração e teste de sistemas, onde cada uma tem um objetivo distinto
-\cite{teste_de_software}. Dentro de cada uma dessas fases são testados tanto
-requisitos funcionais, tratando o que o software deve fazer, quanto os não
-funcionais, que determina como o software deve realizar as suas atividades.
+durante todo o ciclo de desenvolvimento~\cite{teste_de_software}. Essa
+atividade, de forma geral, é dividida em fases de teste de unidade, teste de
+integração e teste de sistemas, onde cada uma tem um objetivo
+distinto~\cite{teste_de_software}. Dentro de cada uma dessas fases são testados
+tanto requisitos funcionais, tratando o que o software deve fazer, quanto os
+não funcionais, que determina como o software deve realizar as suas atividades.
 No escopo deste trabalho iremos focar apenas nos testes de requisitos não
 funcionais, mais especificamente nos relacionados a desempenho.
 
@@ -80,19 +85,18 @@ ser funções, procedimentos, métodos ou classes \cite{teste_de_software}. Os
 testes de integração devem ser realizados depois dos testes de unidade, e nele
 a ênfase é dada na construção da estrutura do sistema \cite{teste_de_software},
 a medida que as partes do software vão ficando prontas é necessário garantir
-que a interação entre elas funciona. Após o software estiver completo, com
-todas as partes integradas, são realizados os testes de sistema. O principal
-objetivo do teste de sistema é verificar se as funcionalidades especificadas
-nos documentos de requisitos estão todas corretamente implementadas
-\cite{teste_de_software}. Neste trabalho focaremos nos testes de sistema,
-onde o sistema já possui uma versão funcional e testaremos a peformance do
-mesmo na escala de uma cidade.
+que a interação entre elas funciona de maneira correta. Após o software estiver
+completo, com todas as partes integradas, são realizados os testes de sistema.
+O principal objetivo do teste de sistema é verificar se os requisitos estão
+sendo atendidos~\cite{teste_de_software}. Neste trabalho focaremos nos testes
+de sistema, onde o sistema já possui uma versão funcional e testaremos o
+desempenho na escala de uma cidade.
 
 Além de desempenho, existem requisitos não funcionais de usabilidade,
 eficiência, confiabilidade, interoperabilidade, etc. \cite{pressman_2009}
 \cite{sommerville_2011}, estando esses fora de escopo desta pesquisa. Na
 próxima seção serão apresentados conceitos e características específicas de
-testes de desempenho, fazendo conexões com o cenário de Cidades Inteligentes.
+testes de desempenho, fazendo conexões com o contexto de Cidades Inteligentes.
 
 \section{Teste de Desempenho}
 \label{sec:analise_performance}
@@ -101,20 +105,20 @@ Desempenho é um critério chave no projeto, aquisição, e uso de sistemas
 computacionais \cite{bukh_1992}. Alguns critérios de desempenho, como o tempo
 de resposta, são reconhecidos como componentes importantes em algumas
 aplicações de usabilidade e estudos de fatores humanos \cite{goodwin_1987}
-\cite{nielsen_1994} \cite{shneiderman_1991} \cite{shneidermaan_2016}. Tendo
-isso em vista, especificar e avaliar requisitos de desempenho em uma aplicação
-ou sistema para Cidades Inteligentes tem relação direta com o uso ou não dessas
-ferramentas para a melhora da qualidade de vida dos cidadãos ou otimização dos
-recursos da cidade, já que longos tempos de resposta do sistema podem causar
-menor satisfação e baixa produtividade entre os usuários \cite{hoxmeier_2000}.
+\cite{nielsen_1994} \cite{shneiderman_1991} \cite{shneidermaan_2016}. Devemos
+ter noção da importância de especificar e avaliar requisitos de desempenho em
+uma aplicação ou sistema para Cidades Inteligentes. Esse tipo de requisito tem
+relação direta com o uso ou não dessas ferramentas por parte dos cidadãos, já
+que longos tempos de resposta do sistema podem causar menor satisfação e baixa
+produtividade entre os usuários \cite{hoxmeier_2000}.
 
 Muitas vezes o processo de teste de desempenho é feito apenas antes da
 implantação do software e de maneira desestruturada, entretanto, esses tipo de
 teste deve ser feito durante todo o ciclo de desenvolvimento, visando encontrar
-possíveis gargalos ainda durante a implementação do software, já que quanto
-antes encontrar problemas, menor será o custo para solucioná-los. Segundo
-\cite{bukh_1992}, existem alguns passos para a realização de um teste de
-desempenho, esses passos são apresentados a seguir.
+possíveis gargalos ainda durante a implementação do software. Quanto antes
+encontrarmos problemas, menor será o custo para solucioná-los. Existem alguns
+passos para a realização de um teste de desempenho~\cite{bukh_1992}, esses
+passos são apresentados a seguir.
 
 \begin{enumerate}
 	\item Definir metas e limites do sistema.
@@ -145,7 +149,7 @@ alinhados com os requisitos de desempenho. A seleção das métricas de
 desempenho usualmente seguirá o que foi especificado nos requisitos de
 desempenho, sendo esse um critério de comparação com outros sistemas,
 alguns exemplos são tempo de resposta (\textit{response time}) e taxa de vazão
-(\textit{throughput}).  Para haver um ambiente controlado, é necessário saber
+(\textit{throughput}). Para haver um ambiente controlado, é necessário saber
 quais parâmetros podem influenciar a desempenho do sistema, e com isso
 determinar os fatores que podem ser variados durante os testes. Com isso é
 possível realizar a seleção da técnica de avaliação, existindo três técnicas
@@ -154,20 +158,20 @@ sistema real \cite{bukh_1992}; e da carga de trabalho, que deve ser condizente
 com a carga real que o mesmo sofrerá. O experimento de teste deve ser projetado
 de modo que ao final ofereça o máximo de informações com o menor custo
 \cite{bukh_1992}. Ao final, os resultados coletados dos testes devem ser
-analisados e apresentados aos interessados, podendo assim ser identificados
-gargalos no sistema ou simplesmente garantir que os requisitos de desempenho
-estão sendo contemplados.
+analisados e apresentados aos interessados, podendo assim identificar gargalos
+no sistema ou simplesmente garantir que os requisitos de desempenho estão sendo
+contemplados.
 
-Neste trabalho iremos propor uma estratégia de integração entre sistemas e
-aplicações e simuladores de Cidades Inteligentes, com o intuito de permitir
-a realização de testes de desempenho em larga escala. Portanto, utilizaremos
-a técnica de simulação para a avaliação de desempenho, e a carga será gerada
+Neste trabalho iremos propor um mecanismo de integração entre uma plataforma e
+um simulador de Cidades Inteligentes, com o intuito de permitir a realização de
+testes e experimentos de desempenho em larga escala. Portanto, utilizaremos a
+técnica de simulação para a avaliação de desempenho, e a carga será gerada
 através de simulações realizadas com dados históricos da cidade, visando tornar
 o cenário de teste realista. Pelo fato de cada cidade ter o seu contexto e suas
 especificidades, defendemos que a geração de uma carga de trabalho realista é
-um desafio, e a simulação é uma forma de solucionarmos esse problema.
-Portanto, a proposta desta pesquisa visa auxiliar principalmente os passos 6 e
-7 apresentados anteriormente. Os outros passos variarão de acordo com o sistema
-a ser avaliado, requisitos, objetivo do teste, e outros fatores, sendo esses de
+um desafio, e a simulação é uma forma de solucionarmos esse problema.  Logo, a
+proposta desta pesquisa visa auxiliar principalmente os passos 6 e 7
+apresentados anteriormente. Os outros passos variarão de acordo com o sistema a
+ser avaliado, requisitos, objetivo do teste, e outros fatores, sendo esses de
 responsabilidade de quem irá conduzir os testes.
 
