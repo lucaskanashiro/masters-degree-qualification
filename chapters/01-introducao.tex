@@ -14,19 +14,19 @@ milhões de recursos deverão ser monitorados e gerenciados em tempo real;
 dispositivos de Internet das Coisas (\textit{Internet of Things - IoT}), com o
 objetivo de obter dados e agir sobre a cidade, poderão enviar dados a todo
 momento concorrentemente; cidadãos poderão requisitar esses serviços a qualquer
-hora do dia. Outros requisitos funcionais e não-funcionais poderão surgir com
+hora do dia. Outros requisitos funcionais e não funcionais poderão surgir com
 o decorrer do tempo e desenvolvimento de novas aplicações.
 
 Para garantir que os requisitos das aplicações e serviços sejam contemplados,
 devem ser realizadas atividades de validação, verificação e teste. Além disso,
 a experimentação de diferentes situações nesse contexto também é algo
-importante, pois os requisitos podem mudar a qualquer momento. Entretanto,
-algumas estratégias comumente utilizadas podem não representar o real ambiente
-de produção, pois metrópoles com milhões de habitantes e recursos geram cargas
-diferentes no sistema dependendo do que acontece na cidade. Testes e
-experimentos com cenários mais próximos da realidade das cidades são
-necessários para que haja de fato a garantia de funcionamento do sistema em
-tais condições.
+importante, pois os requisitos podem mudar a qualquer momento e novas
+tecnologias surgirem. Entretanto, algumas estratégias comumente utilizadas
+podem não representar o real ambiente de produção, pois metrópoles com milhões
+de habitantes e recursos geram cargas diferentes no sistema dependendo do que
+acontece na cidade. Testes e experimentos com cenários mais próximos da
+realidade das cidades são necessários para que haja de fato a garantia de
+funcionamento do sistema em tais condições.
 
 A realização de simulações é uma ferramenta útil nesse
 processo~\cite{adrion_1982}, em que cenários mais realistas e na escala de uma
@@ -38,8 +38,8 @@ implantação de uma infraestrutura de \textit{IoT} em tais condições pode não
 permitir a reproducibilidade de experimentos.
 
 Com o objetivo de viabilizar testes e experimentações de sistemas e aplicações
-para Cidades Inteligentes com cenários simulados de uma cidade, este trabalho
-visa desenvolver um mecanismo de integração do simulador
+para Cidades Inteligentes com cenários simulados de uma cidade, neste trabalho
+vem sendo desenvolvido um mecanismo de integração do simulador
 InterSCSimulator~\cite{santana_17} e da plataforma InterSCity~\cite{arthur_17}.
 Dados simulados pelo InterSCSimulator de múltiplos domínios, como por exemplo
 mobilidade e saúde pública~\cite{neirotti_2014}, poderão ser utilizados para
@@ -63,13 +63,13 @@ em larga escala sem a necessidade de implantação de uma infraestrutura física
 (instalação de sensores e atuadores, configuração de rede de sensores e etc.).
 Tendo em vista que a implantação desse tipo de infraestrutura esbarra em
 diversos problemas, como o alto custo de implantação e burocracias por parte de
-governos. Além disso, infraestruturas de menor escala não são cenários
-realistas para esse tipo de sistema e aplicação.
+governos. Por outro lado, infraestruturas de menor escala não conseguem
+representar cenários realistas para esse tipo de sistema e aplicação.
 
 A utilização de simulação para a realização de testes e experimentos trás
 outras vantagens além das mencionadas, como a possibilidade de simular cenários
 que ainda são hipotéticos. Por exemplo, podemos verificar o comportamento de
-determinado sistema ou aplicação envolvendo um rede veícular que conecta uma
+determinado sistema ou aplicação envolvendo uma rede veícular que conecta uma
 frota de carros autônomos, mesmo ainda não sendo uma realidade nas cidades.
 
 Ademais, viabilizar experimentos em ambientes reproduzíveis é outro fator
@@ -81,10 +81,10 @@ imprevisíveis.
 
 \section{Objetivo e Desafios}
 
-O objetivo deste trabalho é definir um mecanismo para integração do simulador
-InterSCSimulator e da plataforma InterSCity para Cidades Inteligentes, a fim de
-viabilizar testes e experimentos realistas de larga escala na plataforma e suas
-aplicações através de simulações da cidade.
+O objetivo deste trabalho é definir um mecanismo para integração de diferentes
+domínios de Cidades Inteligentes envolvendo o simulador InterSCSimulator e a
+plataforma InterSCity, a fim de viabilizar testes e experimentos realistas de
+larga escala na plataforma e suas aplicações através de simulações da cidade.
 
 O primeiro desafio está relacionado com a integração de sistemas. A integração
 de sistemas possui três dimensões: dados, controle e
@@ -97,21 +97,12 @@ possam contribuir com a integração de outras plataformas e simuladores para
 Cidades Inteligentes.
 
 Novos cenários de simulação estão sendo implementados no simulador
-InterSCSimulator e a sinergia entre esses cenários e os já existentes é mais
-um desafio. Além do mais, para que esses cenários se assemelhem com a realidade
-é necessário de bons modelos que os representem. Sabendo que tanto o
+InterSCSimulator e a sinergia entre esses cenários e os já existentes é mais um
+desafio. Além do mais, para que esses cenários se aproximem da realidade são
+necessários bons modelos que os representem. Sabendo que tanto o
 InterSCSimulator quanto a InterSCity são sistemas de larga
 escala~\cite{arthur_17}~\cite{santana_17}, a integração realizada não deve
 alterar essa característica de ambos.
-
-%Cenários de simulação contendo múltiplos domínios da cidade serão implementados
-%no simulador InterSCSimulator. Tornar a simulação desses cenários o mais
-%realista possível se apresenta como mais um desafio, onde serão realizadas
-%pesquisas a cerca de modelos que os representam. Portanto, a extensão do
-%simulador e possíveis adaptações na plataforma InterSCity serão realizadas no
-%decorrer da pesquisa. Sabendo que tanto o InterSCSimulator quanto a InterSCity
-%são sistemas de larga escala \cite{arthur_17}~\cite{santana_17}, a integração
-%realizada não deve alterar tal característica de ambos.
 
 
 \section{Organização do Trabalho}
@@ -120,9 +111,10 @@ No Capítulo \ref{cap:revisao_bibliografica} serão apresentados conceitos gerais
 e específicos de sistemas e aplicações de Cidades Inteligentes acerca de teste
 de software. No Capítulo \ref{cap:trabalhos_relacionados} será feita uma
 listagem de trabalhos relacionados com o que diz respeito a testes de sistemas
-e aplicações de Cidades Inteligentes. O Capítulo
+e aplicações de Cidades Inteligentes, ainda serão apresentados o simulador
+InterSCSimulator e a plataforma InterSCity. O Capítulo
 \ref{cap:geracao_de_cenarios_de_teste} apresenta os resultados preliminares
-deste trabalho, contendo a implementação de um novo cenário de simulação e a
+deste trabalho, contendo o novo cenário de simulação implementado e a
 integração inicial do simulador InterSCSimulator e da plataforma InterSCity.
 Por fim, considerações finais e plano de trabalho para a continução desta
 pesquisa serão apresentados no Capítulo \ref{cap:consideracoes_finais}.
