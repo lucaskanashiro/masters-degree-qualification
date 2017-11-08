@@ -1,216 +1,119 @@
 \chapter{Trabalhos Relacionados}
 \label{cap:trabalhos_relacionados}
-\todo[inline]{Nelson: voce precisa ter claro na cabeca qual a graca do
-nosso simulador, da nossa plataforma e da integracao que voce esta
-fazendo. Ai, nesta secao, voce comenta cada trabalho e mostra que,
-embora eles sejam otimos, eles nao contemplam este ou aquele aspecto
-que o seu contempla. A ideia nao e fazer um levantamento exaustivo
-de tudo que foi dito sobre smart cities e testes (mas tem que ser
-bem abrangente); a ideia e mostrar como a evolucao da pesquisa andou
-em varias direcoes e voce esta andando em mais uma, diferente.
-Fora isso, nao acho que esta seja a melhor secao para abordar o
-InterSCSimulator e a plataforma InterSCity; eles tem relacao direta
-com seu trabalho, nao sao "concorrentes", que e o que normalmente se
-coloca na secao de trabalhos relacionados. Talvez o certo seja um
-capitulo a mais so para eles.}
 
-Neste capítulo serão apresentados alguns trabalhos realizados acerca de
-formas de realizar testes de desempenho em aplicações de \textit{IoT} e mais
-especificamente Cidades Inteligentes. Além disso, algumas abordagens para
-integrações de simuladores serão listadas. Alguns aspectos importantes do
-simulador InterSCSimulator e a plataforma InterSCity para Cidades Inteligentes
-serão expostos ao final, já que este trabalho visa definir um mecanismo de
-integração de ambos.
+%\todo[inline]{Nelson: voce precisa ter claro na cabeca qual a graca do
+%nosso simulador, da nossa plataforma e da integracao que voce esta
+%fazendo. Ai, nesta secao, voce comenta cada trabalho e mostra que,
+%embora eles sejam otimos, eles nao contemplam este ou aquele aspecto
+%que o seu contempla. A ideia nao e fazer um levantamento exaustivo
+%de tudo que foi dito sobre smart cities e testes (mas tem que ser
+%bem abrangente); a ideia e mostrar como a evolucao da pesquisa andou
+%em varias direcoes e voce esta andando em mais uma, diferente.
+%Fora isso, nao acho que esta seja a melhor secao para abordar o
+%InterSCSimulator e a plataforma InterSCity; eles tem relacao direta
+%com seu trabalho, nao sao "concorrentes", que e o que normalmente se
+%coloca na secao de trabalhos relacionados. Talvez o certo seja um
+%capitulo a mais so para eles.}
+%
+%\todo[inline]{
+%Simulador: simulação em larga escala, execução paralela e distribuída, fácil
+%definição de cenários, múltiplos domínios de Cidades Inteligentes
+%
+%Plataforma: escalável (microserviços), evolutibilidade, evitar silos verticais,
+%facilitar comunicação com a infraestrutura de IoT da cidade, prover serviços
+%de nuvem para aplicações
+%
+%Integração: permitir experimentos com cargas realistas para identificação de
+%gargalos na plataforma, permitir aplicações interagirem com infraestrutura
+%não existentes (futuras, hipotéticasa, reduzir custo de implantação para
+%realização de testes)}
 
-\section{Estratégias de Teste para Sistemas de Cidades Inteligentes}
+Durante a pesquisa que realizamos até o momento não foi encontrada uma solução
+que permitisse o teste e experimentação de plataformas de Cidades Inteligentes
+com cenários realistas e condizente com a carga gerada por grandes cidades,
+sendo essa uma área de pesquisa ainda pouco explorada. Implantações de
+infraestruturas de \textit{IoT} de pequeno porte - \textit{testbeds} - vêm
+sendo a principal abordagem adotada para a realização de experimentos com
+sistemas e aplicações de Cidades Inteligentes. A necessidade de
+\textit{benchmarks} para plataformas de Cidades Inteligentes é algo que já
+começa a ser discutido no meio acadêmico~\cite{arthur_17}, com o intuito de
+poder comparar de maneira quantitativa diferentes plataformas, entretanto
+não encontramos uma solução amplamente utilizada. Acreditamos que a maior
+dificuldade para a geração de cargas sintéticas para testes e experimentação
+de sistemas e aplicações para Cidades Inteligentes seja a imprevisibilidade do
+ambiente, onde essas cargas variam dependendo do horário e eventos que possam
+ocorrer nas cidades.
 
-No contexto de Cidades Inteligentes existem algumas iniciativas para permitir
-testes de aplicações, entretanto, boa parte das soluções propostas envolvem
-a implantação de uma infraestrutura física com dispositivos de \textit{IoT}.
-Alguns trabalhos apresentam
-\textit{testbeds}~\cite{galache_2012}~\cite{nati_2013}~\cite{olivares_2013},
-onde aplicações e sistemas poderiam ser testados, contudo tais infraestruturas
-não conseguem se aproximar de um cenário real de uma metrópole. Ademais, o
-custo e esforço de implementação são altos. Encontramos um estudo em que
-realizaram experimentos sobre a confiabilidade da comunicação M2M
-(\textit{Machine-to-Machine}) em um ambiente de teste federado, envolvendo as
-cidades de Berlin e Cidade do Cabo~\cite{mwangama_2013}, entretanto, o custo e
-a complexidade para a configuração de tal ambiente são altos.
+Diversos trabalhos apresentam implantações de \textit{testbeds} reais visando
+permitir experimentos e testes de aplicações de Cidades
+Inteligentes. O \textit{SmartCampus}~\cite{nati_2013} é um ambiente para
+realização de experimentos centrado no usuário envolvendo tecnologias de
+\textit{IoT}, sendo essa infraestrutura implantada na forma de um prédio
+inteligente (\textit{Smart Building}). Essa solução visa experimentar a
+interação do usuário com novas tecnologias, não tendo como objetivo a
+representação de cenários de larga escala no contexto de uma cidade.
+O \textit{I3ASensorBed}~\cite{olivares_2013} é um \textit{testbed} que visa a
+experimentação de redes de sensores sem fio no âmbito de Cidades Inteligentes,
+os autores desse trabalho mencionam sobre a solução ser escalável e o número de
+sensores ser representativo para o tamanho de uma cidade, contudo a solução é
+composta de 46 nós. O \textit{FIT IoT-LAB}~\cite{adjih_2015} também é um
+ambiente experimental aberto de redes de sensores sem fio para aplicações de
+\textit{IoT}, no trabalho os autores defendem que suportam testes de larga
+escala, entretanto o ambiente contem menos de três mil nós na rede. O número
+de nós presente na rede de sensores desses \textit{testbeds} não é condizente
+com o tamanho de uma grande cidade, já que esperamos milhões de sensores,
+portanto não representando ambientes realistas para experimentação. O projeto
+\textit{SmartSantander}~\cite{galache_2012}, um ambiente experimental
+implantado na cidade de Santander na Espanha, é um dos \textit{testbeds} mais
+conhecidos na área de Cidades Inteligentes. Apesar do ambiente englobar toda
+uma cidade, o mesmo não consegue emular problemas que acontecem em grandes
+metrópoles como São Paulo, pelo fato de ser uma cidade de pequena escala. Além
+do mais, o custo monetário e de tempo para implantação de um ambiente como esse
+é alto. Acreditamos que um dos maiores problemas em \textit{testbeds} reais é a
+falta de flexibilidade dos mesmos, onde a experimentação de cenários diferentes
+podem demandar um alto custo para extender a infraestrutura de \textit{IoT}.
 
-%Os trabalhos apresentados em \cite{galache_2012} \cite{nati_2013}
-%\cite{olivares_2013} trazem ambientes de teste reais (\textit{testbeds}), onde
-%aplicações e sistemas poderiam ser testados, contudo tais infraestruturas não
-%conseguem se aproximar do cenário real de uma metrópole. Ademais, o custo e
-%esforço de implementação são altos. Em \cite{mwangama_2013} foram realizados
-%experimentos sobre a confiabilidade da comunicação M2M
-%(\textit{Machine-to-Machine}) em um ambiente de teste federado, envolvendo as
-%cidades de Berlin e Cidade do Cabo, entretanto, o custo e a complexidade para a
-%configuração de tal ambiente são altos.
+A geração de cargas sintéticas se apresenta como uma solução para a falta de
+flexibilidade de \textit{testbeds} reais, onde diferentes cargas poderiam ser
+geradas para diferentes cenários sem a necessidade de extensão de qualquer
+infraestrutura. Alguns \textit{benchmarks} de \textit{IoT} foram desenvolvidos
+com o objetivo de experimentação e comparação entre sistemas de processamento
+de \textit{stream} de dados distribuídos, sendo esses sistemas usualmente
+componentes presentes em uma plataforma para Cidades Inteligentes. O
+\textit{RIoTBench}~\cite{shukla_2017}~\cite{shukla_2016} é uma ferramenta de
+\textit{benchmark} que visa medir a latência e a escalabilidade desses
+sistemas, baseado em 27 tarefas comuns de dispositivos de \textit{IoT}. Essas
+cargas geradas foram baseadas em observações de dispositivos reais em Cidades
+Inteligentes, com diferentes picos e frequências. Outra ferramenta que funciona
+de uma maneira similar é o \textit{SenSE}~\cite{zyrianoff_2017}, um gerador de
+tráfego de \textit{IoT} para Cidades Inteligentes, onde simulam sensores para
+geração de cargas de larga escala. Esses trabalhos permitem gerar cargas
+sintéticas para teste e experimentação de sistemas e aplicações para Cidades
+Inteligentes no que diz respeito a processamento de dados providos pela
+infraestrutura da cidade, entretanto, não conseguimos interagir visando
+atuação. Ou seja, apenas a geração de carga sintética não permite a realização
+de testes e experimentos que envolvam sensoriamento e atuação na cidade, sendo
+esse tipo de cenário recorrente em Cidades Inteligentes.
 
-Alguns trabalhos sobre estratégias de teste para aplicações de \textit{IoT}
-também poderiam ser aplicadas a Cidades Inteligentes. O \textit{FIT IoT-LAB} é
-um ambiente para realização de experimentos aberto para aplicações de
-\textit{IoT} no âmbito de redes de sensores sem fio~\cite{adjih_2015}, no
-trabalho os autores defendem que suportam testes de larga escala, entretanto o
-ambiente contem menos de três mil nós na rede e um pouco mais de cem robos se
-movendo.  Levando em consideração que em uma cidade esperamos ter milhões de
-sensores, tal ambiente de teste não pode ser considerado algo realista. Existem
-trabalhos voltados para \textit{benchmarks} de \textit{IoT} de tempo real, com
-foco no teste de plataformas de processamento de \textit{stream} de dados
-distribuído~\cite{shukla_2017}~\cite{shukla_2016}. Esses trabalhos realizam
-testes de carga nessas plataformas, mas os mesmos não contemplam peculiaridades
-de uma cidade, como picos de carga e eventos inesperados.
-
-
-%apresenta um ambiente para realização de experimentos aberto para aplicações de
-%\textit{IoT} no âmbito de redes de sensores sem fio, no trabalho os autores
-%defendem que suportam testes de larga escala, entretanto o ambiente contem
-%menos de três mil nós na rede e um pouco mais de cem robos se movendo. Levando
-%em consideração que em uma cidade esperamos ter milhões de sensores, tal
-%ambiente de teste não pode ser considerado algo realista. Existem trabalhos
-%voltados para \textit{benchmarks} de \textit{IoT} de tempo real, com foco no
-%teste de plataformas de processamento de \textit{stream} de dados distribuído,
-%como \cite{shukla_2017} \cite{shukla_2016}. Esses trabalhos realizam testes de
-%carga nessas plataformas, mas os mesmos não contemplam peculiaridades de uma
-%cidade, como picos de carga e eventos inesperados.
-
-\textit{SenSE} é um gerador de tráfego de \textit{IoT} para Cidades
-Inteligentes, onde simulam sensores para geração de cargas de larga
-escala~\cite{zyrianoff_2017}.  Tal trabalho se assemelha com o aqui
-apresentado, todavia o mesmo não contempla a simulação de atuadores na cidade.
-
-%\cite{zyrianoff_2017} apresenta um gerador de tráfego de \textit{IoT} para
-%Cidades Inteligentes, onde simulam sensores para geração de cargas de larga
-%escala. Tal trabalho se assemelha com o aqui apresentado, todavia o mesmo não
-%contempla a simulação de atuadores na cidade.
-
-\section{Simuladores e Cidades Inteligentes}
-
-Simuladores vêm sendo usado em diversas áreas com o objetivo de simular
-diversos cenários complexos, em Cidades Inteligentes isso não é diferente. Em
-geral, realizar a implantação de infraestrutras de \textit{IoT} nas cidades é
-uma tarefa burocrática e cara, e a simulação se apresenta como uma ferramenta
-capaz de contornar esses problemas. Diversos trabalhos de simulações em cidades
-vêm sendo
-desenvolvidos~\cite{karnouskos_2009}~\cite{kim_2009}~\cite{saha_2004}. Outra
-vantagem de simuladores é a possível integração de diferentes cenários, como
-simular redes veículares \textit{ad-hoc} (\textit{VANETs}) juntamente com um
-sistema de semáforos inteligentes~\cite{barba_2012} ou carros elétricos
-híbridos e \textit{smart grids}~\cite{waraich_2013}.
-
-Neste trabalho visamos desenvolver um mecanismo de integração entre o simulador
-InterSCSimulator e a plataforma InterSCity para Cidades Inteligentes. Alguns
-trabalhos envolvendo a integração de dois simuladores já foram realizados, como
-acoplar um simulador de tráfico rodoviário a um de redes
-veiculares~\cite{wegener_2008}, permitindo simulações mais complexas.
-
-\section{InterSCSimulator}
-
-O InterSCSimulator é um simulador \textit{open source} baseado em agentes para
-Cidades Inteligentes que oferece uma interface simples para definição de
-cenários de larga escala \cite{santana_17}. O simulador tem como objetivo
-simular vários cenários complexos de Cidades Inteligentes.
-
-Para atingir a escalabilidade mencionada, o simulador foi implementado usando a
-linguagem \textit{Erlang}. Essa é uma linguagem funcional que visa facilitar a
-implementação de aplicações de larga escala, paralelas e distribuídas. Algumas
-características herdadas do modelo de atores, que é implementado pelo
-\textit{Erlang}, são: paralelismo, execução distribuída, tolerância a falhas e
-protocolo de comunicação \cite{santana_17}.
-
-O simulador foi implementado em cima do simulador de âmbito geral
-\textit{Sim-Diasca}. A Figura \ref{fig:simulator_architecture} apresenta a
-arquitetura do simulador, onde em azul estão os diferentes tipos de agentes
-que podem existir na simulação e em vermelho a definição dos cenários de
-Cidades Inteligentes, tudo isso sendo executado no topo do simulador
-\textit{Sim-Diasca}.
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.5\textwidth]{figures/Arquitetura.pdf}
-	\caption{Arquitetura do simulador InterSCSimulator}
-	\label{fig:simulator_architecture}
-\end{figure}
-
-Na Figura \ref{fig:simulator_components}, são apresentados os componentes do
-simulador. Inicialmente são passadas entradas para a simulação, arquivos XML,
-que em conjunto formam o cenário a ser simulado, esse cenário é executado e a
-saída é criada com todos os eventos ocorridos na simulação. A partir dessa
-saída existe a possibilidade de geração de uma visualização em um mapa ou
-através de gráficos.
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.7\textwidth]{figures/Components.pdf}
-	\caption{Componentes do simulador InterSCSimulator}
-	\label{fig:simulator_components}
-\end{figure}
-
-\section{InterSCity}
-\label{sec:interscity}
-
-A plataforma InterSCity é um projeto \textit{open source}, baseado em
-microserviços que visa permitir a pesquisa colaborativa, desenvolvimento e
-experimentos em Cidades Inteligentes \cite{arthur_17}. A plataforma foi
-desenvolvida baseada na arquitetura de referência para plataformas de Cidades
-Inteligentes apresentada em \cite{santana_2016}, ela provê um conjunto de
-serviços alto-nível baseado em núvem para gerenciar recursos \textit{IoT}
-(Internet das Coisas) heterogêneos \cite{arthur_17}.
-
-A plataforma visa atacar dois principais problemas arquiteturais para
-desenvolver uma plataforma de alta qualidade e que possa ser usada na prática
-no contexto de Cidades Inteligentes: escalabilidade e evolutibilidade
-\cite{arthur_17}. Escalabilidade é necessário pelo fato da mesma ter que
-interagir com um grande número de dispositivos \textit{IoT} espalhados pela
-cidade, milhões de usuários e um grande tráfego de dados. Como as cidades mudam
-constantemente, a questão da evolutibilidade é essencial, já que requisitos
-podem surgir ou mudar a qualquer momento e evoluir a plataforma não deve ser um
-empecilho. Para resolver esses dois problemas apresentados foram adotadas as
-seguintes estratégias~\cite{arthur_17}:
-
-\begin{itemize}
-	\item Modularidade via serviços
-	\item Modelos e dados distribuídos
-	\item Evolução descentralizada
-	\item Reuso de projetos \textit{open source}
-	\item Adoção de padrões abertos
-	\item Comunicação síncrona e assíncrona
-	\item Serviços \textit{stateless}, que não mantêm estado
-\end{itemize}
-
-A Figura \ref{fig:platform_architecture} apresentada a arquitetura da
-plataforma InterSCSity. Atualmente, a mesma é composta de 6 microserviços:
-\textit{Resource Adaptor}, oferece uma abstração para comunicação com os
-dispositivos \textit{IoT}; \textit{Data Collector}, responsável por coletar os
-dados dos sensores conectados; \textit{Actuator Controller}, oferece uma
-interface para atuação junto aos dispositivos de \textit{IoT} com tais
-capacidades; \textit{Resource Catalog}, possui dados estáticos dos recursos da
-cidade cadastrados; \textit{Resource discovery}. provê um serviço de descoberta
-de recursos; e \textit{Resource Viewer}, disponibiliza uma visualização simples
-dos recursos da cidade. A plataforma visa facilitar a manipulação da
-infraestrutura de \textit{IoT} da cidade por aplicações desenvolvidas para a
-cidade.
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.5\textwidth]{figures/platform_architecture.png}
-	\caption{Arquitetura da plataforma InterSCity}
-	\label{fig:platform_architecture}
-\end{figure}
-
-A comunicação entre esses microserviços pode se dar de maneira síncrona ou
-assíncrona dependendo da situação. A comunicação síncrona é feita via API
-\textit{Restful}, ou seja, requisições \textit{HTTP}; e a assíncrona se dá via
-\textit{RabbitMQ}, uma implementação do protocolo \textit{AMQP}, onde o
-objetivo desse protocolo é criar um padrão aberto para troca de mensagens
-assíncronas interoperável e de larga escala \cite{vinoski_2006}. A principal
-vantagem dele é permitir que o \textit{broker} faça as decisões de roteamento,
-não necessitando a aplicação ter conhecimento desse processo
-\cite{vinoski_2006}.
-
-A plataforma traz uma abstração chamada \textit{Recurso}, que representa um
-recurso real da cidade, como ônibus, hospital, paradas de ônibus. Cada um
-desses \textit{Recursos} possuem \textit{Capacidades}, que pode ser de
-sensoriamento ou atuação, usualmente vinculados a algum tipo dispositivo
-\textit{IoT}, como capacidade de medir temperatura ou capacidade de mudar o
-estado de um semáforo.
+Uma forma para conseguirmos prover esse ambiente de teste e experimentação que
+permita sistemas e aplicações exercitar tanto o processamento de dados
+quanto a atuação na infraestrutura da cidade é utilizar simuladores.
+Simuladores de Cidades Inteligentes possuem modelos que representam diversos
+domínios de uma cidade, como mobilidade e meio ambiente, portanto são capazes
+de gerar cargas realistas. Além do mais, alguns simuladores podem ser
+extendidos para que possamos modificar o comportamento de simulações durante a
+sua própria execução, permitindo atuar no cenário de Cidades Inteligentes
+simulado. O \textit{TraCI}~\cite{wegener_2008} é uma técnica para interligar
+simuladores de tráfego rodoviário e redes veiculares, apesar de não prover o
+ambiente de teste e experimentação que desejamos, ele nos apresenta uma técnica
+para fazer com que dois simuladores interajam em tempo de simulação. Tal
+solução mostra que é possível uma aplicação externa interferir em uma simulação
+durante a sua execução, sendo essa a abordagem da solução apresentada neste
+trabalho.  Existem vários trabalhos em que simulações de diferentes domínios de
+cidades foram
+realizadas~\cite{karnouskos_2009}~\cite{kim_2009}~\cite{saha_2004}, além de
+simulações envolvendo mais de um domínio das cidades, como redes veiculares
+\textit{ad-hoc} (\textit{VANETs}) juntamente com um sistema de semáforos
+inteligentes~\cite{barba_2012} e carros elétricos híbridos com \textit{smart
+grids}~\cite{waraich_2013}. Todavia, não encontramos trabalhos que
+apresentassem a solução proposta nesta pesquisa.
