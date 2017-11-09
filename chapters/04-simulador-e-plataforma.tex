@@ -1,0 +1,118 @@
+\chapter{Simulador InterSCSimulator e Plataforma InterSCity}
+\label{cap:simulador-e-plataforma}
+
+Neste capítulo iremos apresentar em mais detalhes a arquitetura e
+especificidades do simulador InterSCSimulator e da plataforma InterSCity. O
+entendimento do funcionamento de ambos será importante para a apresentação
+da integração inicial realizada.
+
+\section{InterSCSimulator}
+
+O InterSCSimulator é um simulador \textit{open source} baseado em agentes para
+Cidades Inteligentes que oferece uma interface simples para definição de
+cenários de larga escala \cite{santana_17}. O simulador tem como objetivo
+simular vários cenários complexos de Cidades Inteligentes.
+
+Para atingir a escalabilidade mencionada, o simulador foi implementado usando a
+linguagem \textit{Erlang}. Essa é uma linguagem funcional que visa facilitar a
+implementação de aplicações de larga escala, paralelas e distribuídas. Algumas
+características herdadas do modelo de atores, que é implementado pelo
+\textit{Erlang}, são: paralelismo, execução distribuída, tolerância a falhas e
+protocolo de comunicação \cite{santana_17}.
+
+O simulador foi implementado em cima do simulador de âmbito geral
+\textit{Sim-Diasca}. A Figura \ref{fig:simulator_architecture} apresenta a
+arquitetura do simulador, onde em azul estão os diferentes tipos de agentes
+que podem existir na simulação e em vermelho a definição dos cenários de
+Cidades Inteligentes, tudo isso sendo executado no topo do simulador
+\textit{Sim-Diasca}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/Arquitetura.pdf}
+	\caption{Arquitetura do simulador InterSCSimulator}
+	\label{fig:simulator_architecture}
+\end{figure}
+
+Na Figura \ref{fig:simulator_components}, são apresentados os componentes do
+simulador. Inicialmente são passadas entradas para a simulação, arquivos XML,
+que em conjunto formam o cenário a ser simulado, esse cenário é executado e a
+saída é criada com todos os eventos ocorridos na simulação. A partir dessa
+saída existe a possibilidade de geração de uma visualização em um mapa ou
+através de gráficos.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/Components.pdf}
+	\caption{Componentes do simulador InterSCSimulator}
+	\label{fig:simulator_components}
+\end{figure}
+
+\section{InterSCity}
+\label{sec:interscity}
+
+A plataforma InterSCity é um projeto \textit{open source}, baseado em
+microserviços que visa permitir a pesquisa colaborativa, desenvolvimento e
+experimentos em Cidades Inteligentes \cite{arthur_17}. A plataforma foi
+desenvolvida baseada na arquitetura de referência para plataformas de Cidades
+Inteligentes apresentada em \cite{santana_2016}, ela provê um conjunto de
+serviços alto-nível baseado em núvem para gerenciar recursos \textit{IoT}
+(Internet das Coisas) heterogêneos \cite{arthur_17}.
+
+A plataforma visa atacar dois principais problemas arquiteturais para
+desenvolver uma plataforma de alta qualidade e que possa ser usada na prática
+no contexto de Cidades Inteligentes: escalabilidade e evolutibilidade
+\cite{arthur_17}. Escalabilidade é necessário pelo fato da mesma ter que
+interagir com um grande número de dispositivos \textit{IoT} espalhados pela
+cidade, milhões de usuários e um grande tráfego de dados. Como as cidades mudam
+constantemente, a questão da evolutibilidade é essencial, já que requisitos
+podem surgir ou mudar a qualquer momento e evoluir a plataforma não deve ser um
+empecilho. Para resolver esses dois problemas apresentados foram adotadas as
+seguintes estratégias~\cite{arthur_17}:
+
+\begin{itemize}
+	\item Modularidade via serviços
+	\item Modelos e dados distribuídos
+	\item Evolução descentralizada
+	\item Reuso de projetos \textit{open source}
+	\item Adoção de padrões abertos
+	\item Comunicação síncrona e assíncrona
+	\item Serviços \textit{stateless}, que não mantêm estado
+\end{itemize}
+
+A Figura \ref{fig:platform_architecture} apresentada a arquitetura da
+plataforma InterSCSity. Atualmente, a mesma é composta de 6 microserviços:
+\textit{Resource Adaptor}, oferece uma abstração para comunicação com os
+dispositivos \textit{IoT}; \textit{Data Collector}, responsável por coletar os
+dados dos sensores conectados; \textit{Actuator Controller}, oferece uma
+interface para atuação junto aos dispositivos de \textit{IoT} com tais
+capacidades; \textit{Resource Catalog}, possui dados estáticos dos recursos da
+cidade cadastrados; \textit{Resource discovery}. provê um serviço de descoberta
+de recursos; e \textit{Resource Viewer}, disponibiliza uma visualização simples
+dos recursos da cidade. A plataforma visa facilitar a manipulação da
+infraestrutura de \textit{IoT} da cidade por aplicações desenvolvidas para a
+cidade.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/platform_architecture.png}
+	\caption{Arquitetura da plataforma InterSCity}
+	\label{fig:platform_architecture}
+\end{figure}
+
+A comunicação entre esses microserviços pode se dar de maneira síncrona ou
+assíncrona dependendo da situação. A comunicação síncrona é feita via API
+\textit{Restful}, ou seja, requisições \textit{HTTP}; e a assíncrona se dá via
+\textit{RabbitMQ}, uma implementação do protocolo \textit{AMQP}, onde o
+objetivo desse protocolo é criar um padrão aberto para troca de mensagens
+assíncronas interoperável e de larga escala \cite{vinoski_2006}. A principal
+vantagem dele é permitir que o \textit{broker} faça as decisões de roteamento,
+não necessitando a aplicação ter conhecimento desse processo
+\cite{vinoski_2006}.
+
+A plataforma traz uma abstração chamada \textit{Recurso}, que representa um
+recurso real da cidade, como ônibus, hospital, paradas de ônibus. Cada um
+desses \textit{Recursos} possuem \textit{Capacidades}, que pode ser de
+sensoriamento ou atuação, usualmente vinculados a algum tipo dispositivo
+\textit{IoT}, como capacidade de medir temperatura ou capacidade de mudar o
+estado de um semáforo.

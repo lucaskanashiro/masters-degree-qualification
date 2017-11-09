@@ -1,0 +1,100 @@
+\chapter{Considerações Finais e Plano de Trabalho}
+\label{cap:consideracoes_finais}
+
+Neste trabalho foi apresentado uma integração preliminar entre a plataforma
+InterSCity e o simulador InterSCSimulator para Cidade Inteligentes, com o
+objetivo de realizar testes de desempenho na plataforma. A integração atual
+exercita a plataforma com uma carga realista tanto do ponto de vista da
+infraestrutura de \textit{IoT}, quanto de aplicações que utilizariam a
+plataforma.
+
+Um teste de desempenho foi realizado e apresentado na Seção
+\ref{sec:resultados}, levando em consideração o novo cenário de simulação
+envolvendo a movimentação de carros na cidade e a busca de vagas de
+estacionamento ao final da viagem apresentado na Seção \ref{sec:simulation}.
+
+
+\section{Plano de Trabalho}
+
+O plano de trabalho dessa pesquisa possui três tarefas principais: I)
+implementação de outro domínio de Cidades Inteligentes no simulador
+InterSCSimulator; II) realização de novos testes de desempenho na plataforma
+InterSCity; e III) desenvolvimento de método para integração de múltiplos
+domínios entre simuladores e plataformas de Cidades Inteligentes.
+
+O desenvolvimento de um novo domínio de Cidades Inteligentes no simulador é
+importante para nos depararmos com novos desafios de integração. Será
+implementado um novo domínio na área de saúde pública, onde pessoas serão
+atendidas em unidades de saúde pública dependendo da especialidade e gravidade.
+Tal domínio trabalhará em conjunto com o domínio de mobilidade já existente,
+gerando cenários de simulação mais realistas e complexos. Nesse domínio serão
+simuladas pessoas saindo de casa, com o objetivo de utilizar o serviço de saúde
+pública, o fluxo de pessoas dentro desse estabelecimento de saúde, e a volta
+dos pacientes para casa.
+
+Com esse novo cenário de simulação envolvendo mobilidade e serviço de saúde
+pública, pretende-se evoluir a integração já existente (apresentado na Seção
+\ref{sec:integration}) visando a realização de novos testes de desempenho na
+plataforma. Com esse novo estudo de caso espera-se amadurecer aspectos da
+integração apresentada.
+
+Por fim, após a integração da plataforma e do simulador envolvendo dois
+cenários de Cidades Inteligentes espera-se definir um método para futuras
+integrações de outros domínios a outras aplicações de Cidades Inteligentes, com
+o intuito de permitir testes de desempenho de larga escala com carga realista.
+
+\section{Contribuições Esperadas}
+
+Com este trabalho esperamos contribuir com um método para viabilização de
+testes de desempenho de larga escala e realista no contexto de Cidades
+Inteligentes. A seguir são apresentadas as contribuições técnicas (\textbf{CT})
+e científicas (\textbf{CC}) esperadas com esse trabalho.
+
+\begin{itemize}
+
+\item \textbf{CT1}: Implementação de novo domínio de Cidades Inteligentes no
+simulador InterSCSimulator. O domínio a ser implementado será o de serviço de
+saúde pública como apresentado anteriormente.
+
+\item \textbf{CT2}: Integração do simulador InterSCSimulator e da plataforma
+InterSCity. Ambos serão integrados com o que diz respeito aos cenários de
+simulação suportados pelo simulador, permitindo a realização de testes de
+desempenho.
+
+\item \textbf{CC1}: Análise de desempenho de plataforma InterSCity envolvendo
+múltiplos domínios de Cidades Inteligentes. Pretende-se avaliar o desempenho
+da plataforma com um cenário envolvendo mobilidade e saúde pública de uma
+cidade. Sendo esse um cenário mais realista, onde aplicações utilizarão dados
+de múltiplos domínios com o intuito de prestar melhores serviços para os
+cidadãos, fugindo dos silos verticais.
+
+\todo[inline]{Nelson: olha a metodologia ai de novo...}
+\item \textbf{CC2}: Desenvolvimento de metodologia para integração de
+simuladores e sistemas e aplicações para Cidades Inteligentes. Essa metodologia
+visa auxiliar futuros testes de desempenho de outros sistemas e aplicações de
+Cidades Inteligentes.
+
+\end{itemize}
+
+
+\section{Cronograma}
+
+Esta seção visa apresentar o cronograma de atividades  até o fim deste
+trabalho, que se estenderá até Julho de 2018. A Tabela \ref{tab:cronograma}
+abaixo apresenta as atividades a serem realizadas e seus respectivos prazos.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l|c|c|c|c|c|c|c|c|c|c|}
+\cline{2-10} & \multicolumn{2}{c|}{2017} & \multicolumn{7}{c|}{2018} \\ \cline{2-10}
+                                                                 & Nov  & Dez  & Jan  & Fev  & Mar  & Abr  & Mai  & Jun  & Jul  \\ \hline
+\multicolumn{1}{|l|}{Implementar  domínio de saúde pública}      & x    & x    & x    &      &      &      &      &      &       \\ \hline
+\multicolumn{1}{|l|}{Integrar novo domínio com a plataforma}     &      &      & x    & x    &      &      &      &      &       \\ \hline
+\multicolumn{1}{|l|}{Realizar teste de desempenho da plataforma} &      &      &      & x    & x    & x    &      &      &       \\ \hline
+\multicolumn{1}{|l|}{Escrita de artigo para Journal}             &      &      &      &      &      & x    & x    & x    &       \\ \hline
+\multicolumn{1}{|l|}{Escrita da dissertação}                     &      &      &      &      &      & x    & x    & x    &       \\ \hline
+\multicolumn{1}{|l|}{Defesa}                                     &      &      &      &      &      &      &      &      & x     \\ \hline
+\end{tabular}
+\caption{Cronograma}
+\label{tab:cronograma}
+\end{table}
