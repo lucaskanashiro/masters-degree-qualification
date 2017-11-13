@@ -79,25 +79,41 @@ Cidades Inteligentes.
 
 \section{Cronograma}
 
-%Esta seção visa apresentar o cronograma de atividades  até o fim deste
-
-O cronograma de atividades deste trabalho que se estenderá até Julho de 2018. A Tabela \ref{tab:cronograma}
-abaixo apresenta as atividades a serem realizadas e seus respectivos prazos.
-
-%TODO: detalhar atividades da tabela (menos escrita da dissertação de defesa), usar palavras melhores (implementar dom[ínio não é bom)
+O cronograma de atividades deste trabalho se estenderá até Julho de 2018. A
+Tabela \ref{tab:cronograma} apresenta as atividades a serem realizadas e seus
+respectivos prazos.
 
 \begin{table}[h]
 \centering
 \begin{tabular}{l|c|c|c|c|c|c|c|c|c|c|}
-\cline{2-10} & \multicolumn{2}{c|}{2017} & \multicolumn{7}{c|}{2018} \\ \cline{2-10}
-                                                                 & Nov  & Dez  & Jan  & Fev  & Mar  & Abr  & Mai  & Jun  & Jul  \\ \hline
-\multicolumn{1}{|l|}{Implementar  domínio de saúde pública}      & x    & x    & x    &      &      &      &      &      &       \\ \hline
-\multicolumn{1}{|l|}{Integrar novo domínio com a plataforma}     &      &      & x    & x    &      &      &      &      &       \\ \hline
-\multicolumn{1}{|l|}{Realizar teste de desempenho da plataforma} &      &      &      & x    & x    & x    &      &      &       \\ \hline
-\multicolumn{1}{|l|}{Escrita de artigo para Journal}             &      &      &      &      &      & x    & x    & x    &       \\ \hline
-\multicolumn{1}{|l|}{Escrita da dissertação}                     &      &      &      &      &      & x    & x    & x    &       \\ \hline
-\multicolumn{1}{|l|}{Defesa}                                     &      &      &      &      &      &      &      &      & x     \\ \hline
+\cline{2-9} & \multicolumn{1}{c|}{2017} & \multicolumn{7}{c|}{2018} \\ \cline{2-9}
+                                                                 & Dez  & Jan  & Fev  & Mar  & Abr  & Mai  & Jun  & Jul  \\ \hline
+\multicolumn{1}{|l|}{Implementar novo domínio de simulação}      & x    & x    &      &      &      &      &      &       \\ \hline
+\multicolumn{1}{|l|}{Integrar com a plataforma}                  &      & x    & x    &      &      &      &      &       \\ \hline
+\multicolumn{1}{|l|}{Realizar teste de desempenho da plataforma} &      &      & x    & x    & x    &      &      &       \\ \hline
+\multicolumn{1}{|l|}{Escrita de artigo para revista}             &      &      &      &      & x    & x    & x    &       \\ \hline
+\multicolumn{1}{|l|}{Escrita da dissertação}                     &      &      &      &      & x    & x    & x    &       \\ \hline
+\multicolumn{1}{|l|}{Defesa}                                     &      &      &      &      &      &      &      & x     \\ \hline
 \end{tabular}
 \caption{Cronograma}
 \label{tab:cronograma}
 \end{table}
+
+A implementação do novo domínio de simulação envolvendo saúde pública no
+InterSCSimulator é o próximo passo desta pesquisa. Nesse cenário visamos
+simular cidadãos saindo de suas casas e se movendo na cidade com o intuito de
+realizar algum procedimento médico em algum centro de saúde. Esse novo domínio
+influenciará o modelo de simulação de mobilidade já existente, onde essa
+movimentação pode causar impacto no trânsito da cidade por exemplo.
+
+Com esse novo domínio implementado no simulador, pretendemos melhorar o
+mecanismo de integração entre o simulador e a plataforma InterSCity. Esse
+mecanismo auxiliará a integração de outros domínios entre os dois sistemas.
+Após a realização da integração, será realizado um teste de desempenho na
+plataforma InterSCity usando dados abertos de saúde para a geração da carga
+sintética via simulador.
+
+Com os resultados obtidos da integração entre os dois sistemas e testes
+realizados, vamos escrever e submeter um artigo para a revista
+\textit{Simulation Modelling Practice and
+Theory}\footnote{\url{https://www.journals.elsevier.com/simulation-modelling-practice-and-theory}}
