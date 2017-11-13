@@ -47,15 +47,21 @@ construção de cenários mais realistas de teste e experimentação para a
 plataforma InterSCity e suas aplicações.
 
 Até o dado momento, nós realizamos uma integração inicial do simulador
-InterSCSimulator  e da plataforma InterSCity. Nessa integração, serviços e
-dados providos pela plataforma são utilizados na simulação e o simulador
-atualiza o estado de recursos na plataforma em tempo de simulação. Portanto,
-foi realizada uma integração de duas vias, onde um influencia no funcionamento
-do outro. O método de integração ainda será evoluído e validado com a
-integração de outro domínio de Cidades Inteligentes no decorrer deste trabalho.
+InterSCSimulator  e da plataforma InterSCity. A Figura \ref{fig:overview}
+apresenta um resumo dessa integração, no sentido 1 serviços e dados providos
+pela plataforma são utilizados na simulação e no sentido 2 o simulador atualiza
+o estado de recursos na plataforma em tempo de simulação de acordo com os
+eventos ocorridos. Portanto, foi realizada uma integração de duas vias, onde um
+influencia no funcionamento do outro. O método de integração ainda será
+evoluído e validado com a integração de outro domínio de Cidades Inteligentes
+no decorrer deste trabalho.
 
-%TODO: adicionar aqui ou em outro lugar um diagrama explicando esse último
-% parágrafo
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.25\textwidth]{figures/integration_overview.png}
+	\caption{Integração da plataforma InterSCity e simulador InterSCSimulator}
+	\label{fig:overview}
+\end{figure}
 
 
 \section{Motivação}
@@ -88,11 +94,11 @@ não sendo possível checar a veracidade dos dados gerados.
 
 \section{Objetivo e Desafios}
 
-%TODO: parágrafo de uma frase só, quebrar em mais frases
 O objetivo deste trabalho é definir um mecanismo para integração de diferentes
 domínios de Cidades Inteligentes envolvendo o simulador InterSCSimulator e a
-plataforma InterSCity, a fim de viabilizar testes e experimentos realistas de
-larga escala na plataforma e suas aplicações através de simulações da cidade.
+plataforma InterSCity. Esse mecanismo vai permitir a criação de ambientes que
+viabilizem testes e experimentos realistas de larga escala na plataforma e suas
+aplicações através de simulações da cidade.
 
 O primeiro desafio está relacionado com a integração de sistemas. A integração
 de sistemas possui três dimensões: dados, controle e
@@ -102,9 +108,6 @@ trabalho almejamos desenvolver um mecanismo de integração de dados e controle
 do simulador InterSCSimulator e da plataforma InterSCity, elucidando mais uma
 aplicação do simulador e tornando a plataforma um ambiente de teste e
 experimentação para aplicações de Cidades Inteligentes.
-%\todo[inline]{Nelson: Nesta secao inteira precisa vender um pouco mais o lado
-%da pesquisa; aqui, por exemplo, algo tipo "...e da plataforma InterSCity,
-%tornando-as muito mais versateis, lindas e maravilhosas". }
 Todavia esperamos que durante a definição desse mecanismo sejam levantadas e
 respondidas questões que possam contribuir com a integração de outras
 plataformas e simuladores para Cidades Inteligentes.
@@ -129,5 +132,5 @@ InterSCSimulator e a plataforma InterSCity. O Capítulo
 \ref{cap:geracao_de_cenarios_de_teste} apresenta os resultados preliminares
 deste trabalho, contendo o novo cenário de simulação implementado e a
 integração inicial do simulador InterSCSimulator e da plataforma InterSCity.
-Por fim, considerações finais e plano de trabalho para a continução desta
-pesquisa serão apresentados no Capítulo \ref{cap:consideracoes_finais}.
+Por fim, o plano de trabalho para a continução desta pesquisa serão
+apresentados no Capítulo \ref{cap:consideracoes_finais}.
