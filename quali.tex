@@ -13,7 +13,7 @@
 % Pacotes 
 %\usepackage[table,xcdraw]{xcolor}
 \usepackage[T1]{fontenc}
-\usepackage[brazil]{babel}
+\usepackage[english,brazil]{babel}
 \usepackage[latin1]{inputenc}
 \usepackage[pdftex]{graphicx}           % usamos arquivos pdf/png como figuras
 \usepackage{setspace}                   % espaçamento flexível
@@ -349,7 +349,9 @@
 % Bibliografia
 \backmatter \singlespacing   % espaçamento simples
 \bibliographystyle{templates/alpha-ime}% citação bibliográfica alpha
-\bibliography{bibliografia}  % associado ao arquivo: 'bibliografia.bib'
+\inputencoding{latin1}
+\bibliography{bibliografia_bibertool}  % associado ao arquivo: 'bibliografia.bib'
+%\bibliography{bibliografia}  % associado ao arquivo: 'bibliografia.bib'
 
 % ---------------------------------------------------------------------------- %
 % Índice remissivo
