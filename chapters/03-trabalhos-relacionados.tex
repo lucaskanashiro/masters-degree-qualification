@@ -31,13 +31,13 @@
 Durante a pesquisa que realizamos até o momento não foi encontrada uma solução
 que permitisse o teste e experimentação de plataformas de Cidades Inteligentes
 com cenários realistas e condizente com a carga gerada por grandes cidades,
-sendo essa uma área de pesquisa ainda pouco explorada. Implantações de
+caracterizando uma área de pesquisa ainda pouco explorada. Implantações de
 infraestruturas de \textit{IoT} de pequeno porte - \textit{testbeds} - vêm
 sendo a principal abordagem adotada para a realização de experimentos com
 sistemas e aplicações de Cidades Inteligentes. A necessidade de
 \textit{benchmarks} para plataformas de Cidades Inteligentes é algo que já
 começa a ser discutido no meio acadêmico~\cite{arthur_17}, com o intuito de
-poder comparar de maneira quantitativa diferentes plataformas, entretanto
+comparar quantitativamente diferentes plataformas, entretanto
 não encontramos uma solução amplamente utilizada. Acreditamos que a maior
 dificuldade para a geração de cargas sintéticas para testes e experimentação
 de sistemas e aplicações para Cidades Inteligentes seja a imprevisibilidade do
@@ -56,13 +56,13 @@ O \textit{I3ASensorBed}~\cite{olivares_2013} é um \textit{testbed} que visa a
 experimentação de redes de sensores sem fio no âmbito de Cidades Inteligentes,
 os autores desse trabalho mencionam sobre a solução ser escalável e o número de
 sensores ser representativo para o tamanho de uma cidade, contudo a solução é
-composta de 46 nós. O \textit{FIT IoT-LAB}~\cite{adjih_2015} também é um
+composta de apenas 46 nós. O \textit{FIT IoT-LAB}~\cite{adjih_2015} também é um
 ambiente experimental aberto de redes de sensores sem fio para aplicações de
-\textit{IoT}, no trabalho os autores defendem que suportam testes de larga
-escala, entretanto o ambiente contem menos de três mil nós na rede. O número
-de nós presente na rede de sensores desses \textit{testbeds} não é condizente
-com o tamanho de uma grande cidade, já que esperamos milhões de sensores,
-portanto não representando ambientes realistas para experimentação.
+\textit{IoT}, os autores defendem que suportam testes de larga escala,
+entretanto o ambiente contem menos de três mil nós na rede. O número de nós
+presente na rede de sensores desses \textit{testbeds} não é condizente com o
+tamanho de uma grande cidade, onde espera-se milhões de sensores, portanto
+inviável para representar ambientes realistas de experimentação.
 
 O projeto \textit{SmartSantander}~\cite{galache_2012}, um ambiente experimental
 implantado na cidade de Santander na Espanha, é um dos \textit{testbeds} mais
@@ -80,7 +80,7 @@ geradas para diferentes cenários sem a necessidade de extensão de qualquer
 infraestrutura. Alguns \textit{benchmarks} de \textit{IoT} foram desenvolvidos
 com o objetivo de experimentação e comparação entre sistemas de processamento
 de \textit{stream} de dados distribuídos, sendo esses sistemas usualmente
-componentes presentes em uma plataforma para Cidades Inteligentes. O
+componentes de plataformas para Cidades Inteligentes. O
 \textit{RIoTBench}~\cite{shukla_2017}~\cite{shukla_2016} é uma ferramenta de
 \textit{benchmark} que visa medir a latência e a escalabilidade desses
 sistemas, baseado em 27 tarefas comuns de dispositivos de \textit{IoT}. Essas
@@ -103,22 +103,22 @@ permite a realização de testes e experimentos que envolvam sensoriamento e
 atuação na cidade, sendo esse tipo de cenário recorrente em Cidades
 Inteligentes.
 
-Uma forma para conseguirmos prover esse ambiente de teste e experimentação que
-permita sistemas e aplicações exercitar tanto o processamento de dados
-quanto a atuação na infraestrutura da cidade é utilizar simuladores.
+Uma forma para conseguirmos prover esse ambiente de teste e experimentação é a
+utilização simuladores, permitindo sistemas e aplicações exercitar tanto o
+processamento de dados quanto a atuação na infraestrutura da cidade.
 Simuladores de Cidades Inteligentes possuem modelos que representam diversos
 domínios de uma cidade, como mobilidade e meio ambiente, portanto são capazes
 de gerar cargas realistas. Além do mais, alguns simuladores podem ser
 extendidos para que possamos modificar o comportamento de simulações durante a
-sua própria execução, permitindo atuar no cenário de Cidades Inteligentes
-simulado. O \textit{TraCI}~\cite{wegener_2008} é uma técnica para interligar
-simuladores de tráfego rodoviário e redes veiculares, apesar de não prover o
-ambiente de teste e experimentação que desejamos, ele nos apresenta uma técnica
-para fazer com que dois simuladores interajam em tempo de simulação. Tal
-solução mostra que é possível uma aplicação externa interferir em uma simulação
-durante a sua execução, sendo essa a abordagem da solução apresentada neste
-trabalho.  Existem vários trabalhos em que simulações de diferentes domínios de
-cidades foram
+sua própria execução, permitindo atuar no cenário simulado de Cidades
+Inteligentes. O \textit{TraCI}~\cite{wegener_2008} é uma técnica para
+interligar simuladores de tráfego rodoviário e redes veiculares, apesar de não
+prover o ambiente de teste e experimentação que desejamos, ele nos apresenta
+uma técnica para fazer com que dois simuladores interajam em tempo de
+simulação. Tal solução mostra que é possível uma aplicação externa interferir
+em uma simulação durante a sua execução, sendo essa a abordagem da solução que
+será apresentada nesta pesquisa. Existem vários estudos em que simulações de
+diferentes domínios de cidades foram
 realizadas~\cite{karnouskos_2009}~\cite{kim_2009}~\cite{saha_2004}, além de
 simulações envolvendo mais de um domínio das cidades, como redes veiculares
 \textit{ad-hoc} (\textit{VANETs}) juntamente com um sistema de semáforos
