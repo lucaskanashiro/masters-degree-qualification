@@ -313,29 +313,30 @@ e o tempo de simulação que irá iniciar a viagem em segundos (\textit{start}).
     emph={origin,link_origin,destination,count,start},emphstyle={\color{magenta}}}
     \lstinputlisting{files/trips.xml}
 
-\textbf{Daqui para frente depende dos dados de um experimento, mas o script já
-está feito. Talvez necessite de alguns pequenos ajustes apenas.}
 
-Os arquivos de entrada contêm cerca de 500 mil vagas de estacionamento e 1
-milhão de viagens, levando em consideração o fluxo de carros da cidade de São
-Paulo entre 6h e 10h. Durante a simulação foi feito o registro do tempo em que
-foi feito a requisição para a plataforma, o tempo em que foi recebida a
-resposta, e se a mesma obteve sucesso ou não. A seguir serão apresentados
-resultados preliminares do teste experimental de desempenho realizado acerca do
-tempo de resposta (\textit{response time}) e vazão (\textit{throughput}) do
-serviço de descoberta de recursos da plataforma.
+Para a realização desse teste inicial da integração foram utilizados dois
+computadores pessoais com 8 GB de memória RAM e 4 CPUs, um executando todos os
+microserviços da plataforma e outro executando o simulador. O cenário de teste
+envolvia 1000 carros se movendo na cidade de São Paulo de 6h até 7h30 da manhã,
+sendo que haviam 1600 vagas espalhadas disponíveis. Durante a simulação foi
+feito o registro do tempo em que foi feito a requisição para a plataforma, o
+tempo em que foi recebida a resposta, e se a mesma obteve sucesso ou não. A
+seguir serão apresentados resultados preliminares do teste experimental de
+desempenho realizado acerca do tempo de resposta (\textit{response time}) e
+vazão (\textit{throughput}) do serviço de descoberta de recursos da plataforma.
 
-\textbf{Adicionar aqui um breve texto explicando o ambiente do google cloud que
-foi feito o teste. Configuração das máquinas presentes no cluster e etc.}
-
-A carga realizada pelo simulador na plataforma pode ser vista na Figura
-\ref{fig:load}, onde podemos ver o número de requisições realizadas em cada
-tempo de simulação. É possível perceber que no início da simulação poucos
-carros requisitam vagas de estacionamento para a plataforma, já que grande
-maioria dos carros ainda estão iniciando ou irão iniciar o seu trajeto. O pico
-de requisições acontece no meio da simulação, onde boa parte dos carros já
-estão realizando os seus respectivos percursos e chegando em seus destinos, se
-mantendo próximo até a finalização de toda a simulação.
+A carga realizada pelo simulador na plataforma nesse teste pode ser vista na
+Figura \ref{fig:load}, onde podemos ver o número de requisições realizadas por
+minuto. Em média, dois segundo de simulação representou um segundo em tempo
+real, isso ocorreu pelo fato de não termos muitos carros na simulação e os
+\textit{ticks} de simulação ociosos serem executados de maneira mais rápida.
+É possível perceber que no início da simulação um número menor de carros
+requisitam vagas de estacionamento para a plataforma, já que grande maioria dos
+carros ainda estão iniciando ou irão iniciar o seu trajeto. O pico de
+requisições acontece próximo dos 37 minutos de teste, aproximadamente as 7h15
+da manhã na simulação, onde 81 requisições foram realizadas para a plataforma
+no mesmo minuto. Após esse horário de pico a maioria dos carros já estão
+chegando aos seus respectivos destinos e o número de requisições é reduzido.
 
 \begin{figure}[ht]
 	\centering
@@ -345,15 +346,14 @@ mantendo próximo até a finalização de toda a simulação.
 	\label{fig:load}
 \end{figure}
 
-A Figura \ref{fig:rate} apresenta a taxa de requisições que foram respondidas
+A Figura \ref{fig:rate} apresenta o número de requisições que foram respondidas
 com sucesso ou não pela plataforma durante o teste, sendo considerado sucesso
-as requisições que retornaram o código HTTP 200. Várias requisições não foram
-respondidas com sucesso pela plataforma, acreditamos que isso tenha acontecido
-devido a infraestrutura que utilizamos para a realização do experimento
-(\textit{Google Cloud Platform}), onde várias requisições foram bloqueadas.
-Outra hipótese é que encontramos um gargalo na plataforma com o que diz
-respeito ao serviço de descoberta, novos experimentos serão realizados para a
-confirmação ou não dessa hipótese.
+as requisições que retornaram o código \textit{HTTP} 200 e erro qualquer outro
+código de retorno. Um pouco mais de 10\% das requisições foram respondidas sem
+sucesso, sendo que esses erros aconteceram devido a \textit{timeouts} do
+serviço da plataforma. Acreditamos que isso ocorreu pelo fato da máquina
+utilizada para implantação da plataforma possuir poucos recursos
+computacionais.
 
 \begin{figure}[ht]
 	\centering
@@ -362,15 +362,14 @@ confirmação ou não dessa hipótese.
 	\label{fig:rate}
 \end{figure}
 
-A Figura \ref{fig:response_time} nos mostra no eixo x o tempo necessário para a
-plataforma responder uma requisição com sucesso e no eixo y a quantidade de
-requisições que foram respondidas naquele tempo, representando assim o
-\textit{response time} da plataforma. Aproximadamente 71\% das requisições
-respondidas com sucesso demoraram até 50 segundos. Entretanto, algumas
-requisições gastaram mais de 100 segundos até a resposta com sucesso, essas
-representando cerca de 5\% do total. Esses longos tempos de espera até a
-resposta da plataforma podem influenciar a experiência dos usuários das
-aplicações que as utilizem.
+Na Figura \ref{fig:response_time} temos a média do tempo de resposta do serviço
+em questão por minuto. Aproximadamente 76\% das requisições respondidas com
+sucesso demoraram até 10 segundos, essas ocorrendo até os 35 minutos de teste
+(7h10 da manhã na simulação). Após esse momento, acreditamos que devido a
+falta de recursos computacionais e sendo esse o pico de requisições deste
+teste (como pode ser visto na Figura \ref{fig:load}), a plataforma começou a
+aumentar o seu tempo médio de resposta, em que 6\% dessas respostas demoraram
+mais de 50 segundos. 
 
 \begin{figure}[ht]
 	\centering
@@ -379,27 +378,32 @@ aplicações que as utilizem.
 	\label{fig:response_time}
 \end{figure}
 
-A vazão do serviço é apresentada na Figura \ref{fig:throughtput}, ou seja,
-quantas requisições foram respondidas com sucesso naquele segundo. Ao
-confrontarmos com a Figura \ref{fig:load} podemos verificar que a vazão do
-sistema não é condizente com a carga de trabalho aplicada, onde um número menor
-de requisições são respondidas com sucesso do que realizadas, o que reflete no
-resultado apresentado na Figura \ref{fig:rate}.
+A quantidade de requisições respondidas com sucesso por minuto é apresentada na
+Figura \ref{fig:throughput}, representando a vazão do serviço de descoberta.
+Podemos notar que a vazão cresce proporcionalmente ao número de requisições
+realizadas até por volta dos 38 minutos de teste (7h15 da manhã na simulação).
+Assim como o tempo médio de resposta, a vazão do serviço é degradada nesse
+pico de requisições. Contudo o número de respostas também é reduzido devido a
+chegada do término da simulação.
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.4\textwidth]{scripts/throughput.png}
 	\caption{Vazão do serviço de descoberta da plataforma InterSCity}
-	\label{fig:throughtput}
+	\label{fig:throughput}
 \end{figure}
 
-Consideramos os testes experimentais de desempenho em larga escala realizados a
-partir da integração feita ainda não ideais devido a falta de conhecimento a
-cerca do ambiente provido pelo serviço de infraestrutura \textit{Google Cloud
-Platform}. Estamos estudando e trabalhando para atingirmos resultados mais
-satisfatórios.
+Consideramos os testes iniciais de desempenho realizados a partir da integração
+feita ainda não ideais devido a implantação da plataforma e simulador em
+máquinas com poucos recursos computacionais. Por isso não foi possível a
+realização de um teste em escala maior. Estamos trabalhando para a realização
+desse mesmo teste de desempenho em maior escala (com 467744 vagas e 9329
+veículos realizando trajetos de 6h às 9h da manhã em São Paulo). Para isso
+estamos automatizando uma implantação mais realista no \textit{Google Cloud
+Platform}, utilizando algumas vantagens não exploradas como a escala automática
+(\textit{auto-scaling}) dos microserviços da plataforma.
 
 Contudo, a infraestrutura provida pela integração da plataforma InterSCity e o
-simulador InterSCSimulator nos permitiu realizar experimentos de desempenho na
+simulador InterSCSimulator nos permitirá realizar testes de desempenho na
 escala da cidade de São Paulo em um cenário realista, mostrando a viabilidade
 da proposta trazida para esta pesquisa.
