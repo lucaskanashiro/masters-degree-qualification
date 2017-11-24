@@ -151,14 +151,15 @@ do serviço de descoberta provido pela plataforma InterSCity.  Para isso foi
 utilizado um agente externo chamado \textit{Parking Spot Discoverer}, que fez o
 papel de um \textit{middleware} entre os dois sistemas. O uso desse
 \textit{middleware} se fez necessário para que a simulação exerça a carga que
-aplicações exerceriam utilizando o protocolo \textit{HTTP} para acessara a API
+aplicações exerceriam utilizando o protocolo \textit{HTTP} para acessar a API
 \textit{Restful}. Como requisições \textit{HTTP} são síncronas, a realização
 das mesmas dentro da simulação atrasaria consideravelmente a sua finalização,
 já que bloquearia a execução dos agentes enquanto aguardariam a resposta da
 plataforma. Antes de chegarmos a tal solução implementamos uma versão onde o
-próprio simulador fazia requisições \textit{HTTP} para a plataforma em tempo de
-simulação, entretanto, essa solução gerou um gargalo na simulação.  Abaixo será
-descrito o fluxo de atividades apresentado na Figura \ref{fig:descoberta}.
+próprio simulador realizava requisições \textit{HTTP} para a plataforma em
+tempo de simulação, entretanto, essa solução gerou um gargalo na simulação.
+Abaixo será descrito o fluxo de atividades apresentado na Figura
+\ref{fig:descoberta}.
 
 \begin{enumerate}
 	\item Ao chegar um nó antes do seu destino, o carro solicita a vaga de
@@ -184,7 +185,7 @@ descrito o fluxo de atividades apresentado na Figura \ref{fig:descoberta}.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.3\textwidth]{figures/integration_get_data.png}
+	\includegraphics[width=0.35\textwidth]{figures/integration_get_data.png}
 	\caption{Integração para descoberta de vagas livres próximo do destino da
 	viagem}
 	\label{fig:descoberta}
@@ -213,7 +214,7 @@ fluxo.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.3\textwidth]{figures/integration_publish_data.png}
+	\includegraphics[width=0.35\textwidth]{figures/integration_publish_data.png}
 	\caption{Integração para publicar dados}
 	\label{fig:atualizacao}
 \end{figure}
@@ -396,11 +397,12 @@ chegada do término da simulação.
 Consideramos os testes iniciais de desempenho realizados a partir da integração
 feita ainda não ideais devido a implantação da plataforma e simulador em
 máquinas com poucos recursos computacionais. Por isso não foi possível a
-realização de um teste em escala maior. Estamos trabalhando para a realização
-desse mesmo teste de desempenho em maior escala (com 467744 vagas e 9329
-veículos realizando trajetos de 6h às 9h da manhã em São Paulo). Para isso
-estamos automatizando uma implantação mais realista no \textit{Google Cloud
-Platform}, utilizando algumas vantagens não exploradas como a escala automática
+realização de um teste em escala maior, e mesmo assim estressando essa
+instância da plataforma. Estamos trabalhando para a realização desse mesmo
+teste de desempenho em maior escala (com 467744 vagas e 9329 veículos
+realizando trajetos de 6h às 9h da manhã em São Paulo). Para isso estamos
+automatizando uma implantação mais realista no \textit{Google Cloud Platform},
+utilizando algumas vantagens não exploradas como a escala automática
 (\textit{auto-scaling}) dos microserviços da plataforma.
 
 Contudo, a infraestrutura provida pela integração da plataforma InterSCity e o
