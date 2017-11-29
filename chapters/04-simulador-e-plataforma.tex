@@ -48,10 +48,10 @@ através de gráficos.
 	\label{fig:simulator_components}
 \end{figure}
 
-\section{InterSCity}
+\section{Plataforma InterSCity}
 \label{sec:interscity}
 
-A plataforma InterSCity é um projeto \textit{open source}, baseado em
+A plataforma InterSCity é um projeto de código aberto, baseado em
 microserviços que visa permitir a pesquisa colaborativa, desenvolvimento e
 experimentos em Cidades Inteligentes~\cite{arthur_17}. A plataforma foi
 desenvolvida baseada em uma arquitetura de referência para plataformas de
@@ -71,7 +71,7 @@ não deve ser um empecilho. Para resolver esses dois problemas apresentados
 foram adotadas as seguintes estratégias~\cite{arthur_17}:
 
 \begin{itemize}
-	\item Modularidade via serviços
+	\item Modularidade via microsserviços
 	\item Modelos e dados distribuídos
 	\item Evolução descentralizada
 	\item Reuso de projetos \textit{open source}
@@ -81,7 +81,7 @@ foram adotadas as seguintes estratégias~\cite{arthur_17}:
 \end{itemize}
 
 A Figura \ref{fig:platform_architecture} apresentada a arquitetura da
-plataforma InterSCSity. Atualmente, a mesma é composta de 6 microserviços:
+plataforma InterSCSity. Atualmente, a mesma é composta de 6 microsserviços:
 \textit{Resource Adaptor}, oferece uma abstração para comunicação com os
 dispositivos \textit{IoT}; \textit{Data Collector}, responsável por coletar os
 dados dos sensores conectados; \textit{Actuator Controller}, oferece uma
@@ -100,15 +100,15 @@ cidade.
 	\label{fig:platform_architecture}
 \end{figure}
 
-A comunicação entre esses microserviços pode se dar de maneira síncrona ou
+A comunicação entre esses microsserviços pode se dar de maneira síncrona ou
 assíncrona dependendo da situação. A comunicação síncrona é feita via API
 \textit{Restful}, ou seja, requisições \textit{HTTP}; e a assíncrona se dá via
 \textit{RabbitMQ}, uma implementação do protocolo \textit{AMQP}, onde o
 objetivo desse protocolo é criar um padrão aberto para troca de mensagens
-assíncronas interoperável e de larga escala \cite{vinoski_2006}. A principal
-vantagem dele é permitir que o \textit{broker} faça as decisões de roteamento,
-não necessitando a aplicação ter conhecimento desse processo
-\cite{vinoski_2006}.
+assíncronas interoperável e de larga escala~\cite{vinoski_2006}. A principal
+vantagem dele é permitir que o \textit{broker} de mensagens faça as decisões de
+roteamento, não necessitando a aplicação ter conhecimento desse
+processo~\cite{vinoski_2006}.
 
 A plataforma traz uma abstração chamada \textit{Recurso}, que representa um
 recurso real da cidade, como ônibus, hospital, paradas de ônibus. Cada um
