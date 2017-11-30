@@ -42,7 +42,16 @@ request <- data$request
 #load <- as.data.frame(table(request))
 #print(throughput)
 
-data['request_sum'] <- sapply(data['request'], function(x) (as.numeric(format(x, "%H"))*60) + as.numeric(format(x, "%M")) )
+sum <- function(x) {
+	hours = as.numeric(format(x, "%H"))
+	minutes = as.numeric(format(x, "%M"))
+
+	hours = ifelse(hours<=0,24,hours)
+
+	hours*60 + minutes
+}
+
+data['request_sum'] <- sapply(data['request'], sum)
 
 initial <- data$request_sum[1] - 1
 data['request_sum'] <- sapply(data['request_sum'], function(x) x - initial)
@@ -62,7 +71,8 @@ success <- rate_data[['success']]
 error <- rate_data[['error']]
 
 success$response_time <- success$answer - success$request
-success['request_sum'] <- sapply(success['request'], function(x) (as.numeric(format(x, "%H"))*60) + as.numeric(format(x, "%M")) )
+#success['request_sum'] <- sapply(success['request'], function(x) (as.numeric(format(x, "%H"))*60) + as.numeric(format(x, "%M")) )
+success['request_sum'] <- sapply(success['request'], sum )
 success['request_time'] <- sapply(success['request'], function(x) format(x, "%H:%M"))
 
 success['simulation_response'] <- success['simulation_time'] + success['response_time']
@@ -114,7 +124,8 @@ print("DONE")
 #throughput <- as.data.frame(table(answer))
 #print(throughput)
 
-success['answer_sum'] <- sapply(success['answer'], function(x) (as.numeric(format(x, "%H"))*60) + as.numeric(format(x, "%M")) )
+#success['answer_sum'] <- sapply(success['answer'], function(x) (as.numeric(format(x, "%H"))*60) + as.numeric(format(x, "%M")) )
+success['answer_sum'] <- sapply(success['answer'], sum )
 
 initial <- success$answer_sum[1] - 1
 success['answer_sum'] <- sapply(success['answer_sum'], function(x) x - initial)
