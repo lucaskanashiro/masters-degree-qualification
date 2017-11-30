@@ -37,7 +37,7 @@ desempenho. %Algumas singularidades no âmbito de Cidades Inteligentes e testes
 
 \section{Cidades Inteligentes}
 
-As cidades atuais são sistemas complexos que são caracterizados por grande
+As cidades atuais são sistemas complexos que são caracterizados por: grande
 número de cidadãos interconectados, negócios, diferentes modos de transporte,
 redes de comunicação, serviços e laços~\cite{neirotti_2014}. O rápido
 crescimento enfrentado por várias cidades gerou congestionamentos, poluição e
@@ -49,15 +49,15 @@ cidadãos~\cite{arthur_17}.
 As Cidades Inteligentes são caracterizadas pela adoção de Tecnologias de
 Informação e Comunicação (TIC) como parte integrante da infraestrutura de uma
 cidade capaz de suportar soluções múltiplas para desafios
-urbanos~\cite{neirotti_2014}. Atualmente existem várias soluções que focam em
-somente um domínio específico e isolado, como mobilidade urbana e sistema de
-saúde.  Visando solucionar esse problema, algumas pesquisas apontam o uso de
-plataformas de software para Cidades Inteligentes, sendo essas ambientes de
+urbanos~\cite{neirotti_2014}. Atualmente, existem várias soluções que focam em
+somente um domínio específico e isolado, como mobilidade urbana e saúde.
+Visando solucionar esse problema, algumas pesquisas usam plataformas de
+software para Cidades Inteligentes, sendo essas ambientes de
 \textit{middleware} integrado que oferecem suporte a desenvolvedores de
 software no projeto, implementação, implantação e gerenciamento de
-aplicativos~\cite{santana_2016}. Independente do foco da aplicação, a mesma
-deve ser capaz de suportar cargas geradas por uma cidade. Para essa garantia
-devemos realizar testes e experimentos de desempenho.
+aplicativos~\cite{santana_2016}. Independente do foco da aplicação, ela deve
+ser capaz de suportar cargas geradas por uma cidade. Para essa garantia devemos
+realizar testes e experimentos de desempenho.
 
 \section{Teste de Software}
 
@@ -101,21 +101,19 @@ não funcionais, que determina como o software deve realizar as suas atividades.
 No escopo deste trabalho iremos focar apenas nos testes de requisitos não
 funcionais, mais especificamente nos relacionados a desempenho.
 
-O teste de unidade tem como foco as menores unidades do programa, que podem
-ser funções, procedimentos, métodos ou classes \cite{teste_de_software}. Os
-testes de integração devem ser realizados depois dos testes de unidade, e nele
-a ênfase é dada na construção da estrutura do sistema \cite{teste_de_software},
-a medida que as partes do software vão ficando prontas, é necessário garantir
-que a interação entre elas funciona de maneira correta. Após a completude do
-software, com todas as partes integradas, são realizados os testes de sistema.
-O principal objetivo do teste de sistema é verificar se os requisitos estão
-sendo atendidos~\cite{teste_de_software}. Neste trabalho focaremos nos testes
-de sistema, onde o sistema já possui uma versão funcional e testaremos o
-desempenho na escala de uma cidade.
+O teste de unidade tem como foco as menores unidades do programa, que podem ser
+funções, procedimentos, métodos ou classes. Os testes de integração devem ser
+realizados depois dos testes de unidade, e ênfase é na construção da estrutura
+do sistema. A medida que as partes do software vão ficando prontas, é
+necessário garantir que as interações entre elas funcionam de maneira correta.
+Com todas as partes integradas, são realizados os testes de sistema.  O
+principal objetivo do teste de sistema é verificar se os requisitos estão sendo
+atendidos. Neste trabalho, focaremos nos testes de sistema, onde o sistema já
+possui uma versão funcional e testaremos o desempenho, na escala de uma cidade.
 
 Existem requisitos não funcionais de usabilidade, eficiência, confiabilidade,
 interoperabilidade, etc. \cite{pressman_2009} \cite{sommerville_2011}, estando
-esses fora de escopo desta pesquisa. Na próxima seção serão apresentados
+esses fora de escopo desta pesquisa. Na próxima seção, serão apresentados
 conceitos e características específicas de testes de desempenho, fazendo
 conexões com o contexto de Cidades Inteligentes.
 
@@ -134,11 +132,11 @@ gestores, já que longos tempos de resposta do sistema podem causar menor
 satisfação e baixa produtividade entre os usuários \cite{hoxmeier_2000}.
 
 Muitas vezes o processo de teste de desempenho é feito apenas antes da
-implantação do software e de maneira desestruturada, entretanto, esse tipo de
+implantação do software e de maneira desestruturada. Entretanto, esse tipo de
 teste deve ser feito durante todo o ciclo de desenvolvimento, visando encontrar
 possíveis gargalos ainda durante a implementação do software. Quanto antes
 encontrarmos problemas, menor será o custo para solucioná-los. Existem alguns
-passos para a realização de um teste de desempenho~\cite{bukh_1992}:
+passos para a realização de um teste de desempenho:
 
 \begin{enumerate}
 	\item Definir metas e limites do sistema.
@@ -167,21 +165,28 @@ afetarão tanto a escolha das métricas quanto a carga a ser utilizada, portanto
 devem ser os primeiros passos antes da realização do teste, estando esses
 alinhados com os requisitos de desempenho. A seleção das métricas de desempenho
 usualmente seguirá o que foi especificado nos requisitos, sendo esse um
-critério de comparação com outros sistemas, alguns exemplos são tempo de
+critério de comparação com outros sistemas. Alguns exemplos são tempo de
 resposta (\textit{response time}) e vazão (\textit{throughput}). Para haver um
 ambiente controlado, é necessário saber quais parâmetros podem influenciar o
-desempenho do sistema, e com isso determinar os fatores que podem ser variados
-durante os testes. Com isso é possível realizar a seleção da técnica de
+desempenho do sistema e, com isso, determinar os fatores que podem ser variados
+durante os testes. Dessa forma, é possível realizar a seleção da técnica de
 avaliação (existindo três técnicas amplamente usadas: modelagem analítica,
 simulação e medição de sistema real \cite{bukh_1992}) e da carga de trabalho,
 que deve ser condizente com a carga real de um ambiente de produção. O
-experimento de teste deve ser projetado de modo que ao final ofereça o máximo
+experimento de teste deve ser projetado de modo que, ao final, ofereça o máximo
 de informações com o menor custo \cite{bukh_1992}. Ao término, os resultados
 coletados dos testes, devem ser analisados e apresentados aos interessados, com
 possibilidade de identificação de gargalos no sistema ou simplesmente com
 garantias que os requisitos de desempenho estão sendo contemplados.
 
-Neste trabalho iremos propor um mecanismo de integração entre uma plataforma e
+Dentre os diferentes tipos de testes de desempenho temos os de carga e de
+estresse. Ao aplicarmos uma carga elevada suportada pelo sistema ou aplicação
+estaremos realizando um teste de carga. A partir do momento que essa carga
+ultrapassa os limites suportados, estamos estressando o sistema, existindo uma
+linha tênue entre ambos. O principal objetivo desses tipos de teste é encontrar
+gargalos, identificando pontos de possíveis melhorias no sistema.
+
+Neste trabalho, iremos propor um mecanismo de integração entre uma plataforma e
 um simulador de Cidades Inteligentes, com o intuito de permitir a realização de
 testes e experimentos de desempenho em larga escala. Portanto, utilizaremos a
 técnica de simulação para a avaliação de desempenho, e a carga será gerada
@@ -192,5 +197,9 @@ um desafio, e a simulação baseada em dados históricos de cada uma delas é uma
 forma de solucionarmos esse problema. Logo, a proposta desta pesquisa visa
 auxiliar principalmente os passos 6 e 7 apresentados anteriormente. Os outros
 passos variarão de acordo com o sistema a ser avaliado, requisitos, objetivo do
-teste, e demais fatores, sendo esses de responsabilidade de quem irá conduzir
+teste e demais fatores, sendo esses de responsabilidade de quem irá conduzir
 os testes.
+
+Para compreendermos melhor as abordagens utilizadas para a realização de testes
+de desempenho no contexto de Cidades Inteligentes e suas limitações, serão
+apresentados alguns trabalhos relacionados no capítulo a seguir.
