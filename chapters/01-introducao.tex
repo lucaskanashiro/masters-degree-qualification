@@ -20,22 +20,25 @@ o decorrer do tempo e desenvolvimento de novas aplicações.
 Para garantir que os requisitos das aplicações e serviços sejam contemplados,
 devem ser realizadas atividades de validação, verificação e teste. Além disso,
 a experimentação de diferentes situações nesse contexto também é algo
-importante, pois os requisitos podem mudar a qualquer momento e novas
-tecnologias surgirem. Entretanto, algumas estratégias comumente utilizadas
-podem não representar o real ambiente de produção, pois metrópoles com milhões
-de habitantes e recursos geram cargas diferentes no sistema dependendo do que
-acontece na cidade. Testes e experimentos com cenários mais próximos da
-realidade das cidades são necessários para que haja, de fato, a garantia de
-funcionamento do sistema em tais condições.
+importante, pois os requisitos e tecnologias podem mudar ou surgir a qualquer
+momento.  Contudo, realizar testes e experimentos envolvendo diferentes
+domínios e na escala de grandes cidades é uma atividade difícil.  Metrópoles
+com milhões de habitantes e recursos geram cargas diferentes no sistema
+dependendo do que acontece, além de os domínios da cidade se relacionarem a
+todo momento. Apesar da dificuldade, testes e experimentos com cenários mais
+próximos da realidade das cidades são necessários para que haja, de fato, a
+garantia de funcionamento do sistema em tais condições.
 
-A realização de simulações é uma ferramenta útil nesse
-processo~\cite{adrion_1982}, em que cenários mais realistas e na escala de uma
-cidade podem ser criados. Além do mais, testes com cenários simulados podem
-auxiliar no desenvolvimento de pesquisas na área. Cenários controlados podem
-garantir que experimentos que envolvam sistemas e aplicações possam ser
-verificados por terceiros. Tendo em vista que cidades são dinâmicas, a
-implantação de uma infraestrutura de \textit{IoT} em tais condições pode não
-permitir a reproducibilidade de experimentos.
+A realização de testes e experimentos em ambientes controlados irão facilitar
+inclusive o desenvolvimento de pesquisas científicas na áres de Cidades
+Inteligentes. Infraestruturas de \textit{IoT} podem não permitir a
+reproducibilidade de experimentos devido a dinamicidade das cidades. Cenários
+controlados por simulação podem garantir que experimentos que envolvam sistemas
+e aplicações possam ser verificados por terceiros.
+
+%A realização de simulações é uma ferramenta útil nesse
+%processo~\cite{adrion_1982}, cenários mais realistas e na escala de uma cidade
+%podem ser criados. 
 
 Com o objetivo de viabilizar testes e experimentações de sistemas e aplicações
 para Cidades Inteligentes com cenários simulados de uma cidade, neste trabalho
@@ -48,7 +51,7 @@ plataforma InterSCity e suas aplicações.
 
 Até o dado momento, nós realizamos uma integração inicial do simulador
 InterSCSimulator  e da plataforma InterSCity. A Figura \ref{fig:overview}
-apresenta um resumo dessa integração. No sentido 1 serviços e dados providos
+apresenta um resumo dessa integração. No sentido 1, serviços e dados providos
 pela plataforma são utilizados na simulação e no sentido 2, o simulador
 atualiza o estado de recursos na plataforma em tempo de simulação de acordo com
 os eventos ocorridos. Portanto, foi realizada uma integração de duas vias, onde
@@ -67,13 +70,13 @@ no decorrer deste trabalho.
 \section{Motivação}
 
 Um dos principais fatores que motiva esta pesquisa é permitir testes e
-experimento em sistemas e aplicações de Cidades Inteligentes com cenários
+experimentos em sistemas e aplicações de Cidades Inteligentes com cenários
 realistas em larga escala sem a necessidade de implantação de uma
 infraestrutura física (instalação de sensores e atuadores, configuração de rede
-de sensores e etc.). Ao passo que a implantação desse tipo de infraestrutura
-esbarra em diversos problemas, como o alto custo de implantação e burocracias
-por parte de governos. Por outro lado, infraestruturas de menor escala não
-conseguem representar cenários realistas para esse tipo de sistema e aplicação.
+de sensores, etc.). A implantação desse tipo de infraestrutura esbarra em
+diversos problemas, como o alto custo de implantação e burocracias por parte de
+governos. Por outro lado, infraestruturas de menor escala não conseguem
+representar cenários realistas para esse tipo de sistema e aplicação.
 
 A utilização de simulação para a realização de testes e experimentos trás
 outras vantagens além das mencionadas, como a possibilidade de simular cenários
@@ -81,14 +84,14 @@ que ainda são hipotéticos. Por exemplo, podemos verificar o comportamento de
 determinado sistema ou aplicação envolvendo uma rede veícular que conecta uma
 frota de carros autônomos, mesmo ainda não sendo uma realidade nas cidades.
 
-Ademais, viabilizar experimentos em ambientes reproduzíveis é outro fator
-importante para alavancarmos a pesquisa no contexto de Cidades Inteligentes.
-Apesar de \textit{testbeds} reais serem importantes, vide exemplo do projeto
-\textit{SmartSantander}~\cite{sanchez_2014}, eles podem se apresentar como
-imprevisíveis. Por exemplo, os resultados de um experimento executado em
-determinado dia do ano e determinada hora pode representar algum evento raro e
-não se repetir novamente, tornando impossível a reprodução do que foi feito,
-não sendo possível checar a veracidade dos dados gerados.
+Ademais, viabilizar experimentos em ambientes reprodutíveis é outro fator
+importante para alavancarmos a pesquisa científica no contexto de Cidades
+Inteligentes.  Apesar de \textit{testbeds} reais serem importantes, vide
+exemplo do projeto \textit{SmartSantander}~\cite{sanchez_2014}, eles podem se
+apresentar como imprevisíveis. Por exemplo, os resultados de um experimento
+executado em determinado dia do ano e determinada hora pode representar algum
+evento raro e não se repetir novamente, tornando impossível a reprodução do que
+foi feito, não sendo possível checar a veracidade dos dados gerados.
 
 
 \section{Objetivo e Desafios}
@@ -104,12 +107,12 @@ de sistemas possui três dimensões: dados, controle e
 apresentação~\cite{wasserman_1990}. Usualmente integrações são feitas a nível
 de sistema-a-sistema, não existindo padronização~\cite{wasserman_1990}. Neste
 trabalho almejamos desenvolver um mecanismo de integração de dados e controle
-do simulador InterSCSimulator e da plataforma InterSCity, elucidando mais uma
+do simulador InterSCSimulator e da plataforma InterSCity, apresentando mais uma
 aplicação do simulador e tornando a plataforma um ambiente de teste e
-experimentação para aplicações de Cidades Inteligentes.
-Todavia esperamos que durante a definição desse mecanismo sejam levantadas e
-respondidas questões que possam contribuir com a integração de outras
-plataformas e simuladores para Cidades Inteligentes.
+experimentação para aplicações de Cidades Inteligentes.  Todavia esperamos que
+durante a definição desse mecanismo sejam levantadas e respondidas questões que
+possam contribuir com a integração de outras plataformas e simuladores para
+Cidades Inteligentes.
 
 Novos cenários de simulação estão sendo implementados no simulador
 InterSCSimulator e a sinergia entre esses cenários e os já existentes é mais um
@@ -124,13 +127,12 @@ alterar essa característica de ambos.
 
 No Capítulo \ref{cap:revisao_bibliografica} serão apresentados conceitos gerais
 e específicos de sistemas e aplicações de Cidades Inteligentes acerca de teste
-de software. No Capítulo \ref{cap:trabalhos_relacionados} será feita uma
-listagem de trabalhos relacionados com o que diz respeito a testes de sistemas
-e aplicações de Cidades Inteligentes. A apresentação de detalhes do simulador
-InterSCSimulator e a plataforma InterSCity será feita no Capítulo
-\ref{cap:simulador-e-plataforma}. O Capítulo
+de software. No Capítulo \ref{cap:trabalhos_relacionados} trabalhos
+relacionados a testes de sistemas e aplicações de Cidades Inteligentes. A
+apresentação de detalhes do simulador InterSCSimulator e a plataforma
+InterSCity será feita no Capítulo \ref{cap:simulador-e-plataforma}. O Capítulo
 \ref{cap:geracao_de_cenarios_de_teste} apresenta os resultados preliminares
 deste trabalho, contendo o novo cenário de simulação implementado e a
 integração inicial do simulador InterSCSimulator e da plataforma InterSCity.
-Por fim, o plano de trabalho para a continução desta pesquisa serão
-apresentados no Capítulo \ref{cap:consideracoes_finais}.
+Por fim, o plano de trabalho para a continução desta pesquisa apresentado no
+Capítulo \ref{cap:consideracoes_finais}.
