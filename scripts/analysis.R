@@ -32,7 +32,7 @@ Estado <- c("Erro", "Sucesso")
 theme_set(theme_gray(base_size = 18))
 png('rate.png')
 ggplot(rate, aes(result, Freq, fill=Estado)) + geom_bar(stat="identity", width=.6) +
-xlab("Estado da requisição") + ylab("Número de requisições") +
+xlab("Estado da resposta da requisição") + ylab("Requisições") +
 theme(axis.text.x=element_blank(), axis.ticks.x=element_blank())
 dev.off()
 
@@ -59,7 +59,7 @@ data['request_sum'] <- sapply(data['request_sum'], function(x) x - initial)
 theme_set(theme_gray(base_size = 18))
 png('load.png')
 ggplot(data, aes(request_sum)) + geom_histogram(col='white') +
-ylab("Número de requisições realizadas") + xlab("Tempo (min)") +
+ylab("Requisições") + xlab("Tempo (min)") +
 theme(legend.position="none")
 dev.off()
 
@@ -134,7 +134,7 @@ theme_set(theme_gray(base_size = 18))
 png('throughput.png')
 ggplot(success, aes(answer_sum)) + geom_histogram(col='white') +
 #scale_x_continuous(breaks=seq(0, 35, 5), lim=c(0,33)) +
-ylab("Número de respostas com sucesso") + xlab("Tempo (min)") +
+ylab("Respostas com sucesso") + xlab("Tempo (min)") +
 theme(legend.position="none")
 dev.off()
 
