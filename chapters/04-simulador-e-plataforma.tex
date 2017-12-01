@@ -1,14 +1,14 @@
-\chapter{Simulador InterSCSimulator e Plataforma InterSCity}
+\chapter{O InterSCSimulator e a Plataforma InterSCity}
 \label{cap:simulador-e-plataforma}
 
-Neste capítulo iremos apresentar em mais detalhes a arquitetura e
-especificidades do simulador InterSCSimulator e da plataforma InterSCity. O
-entendimento do funcionamento de ambos será importante para a apresentação
-da integração inicial realizada.
+Neste capítulo, apresentaremos em mais detalhes sobre a arquitetura e
+especificidades do InterSCSimulator e da plataforma InterSCity. O entendimento
+do funcionamento de ambos será importante para a apresentação da integração a
+ser realizada.
 
 \section{InterSCSimulator}
 
-O InterSCSimulator é um simulador \textit{open source} baseado em agentes para
+O InterSCSimulator é um simulador de código aberto baseado em agentes para
 Cidades Inteligentes que oferece uma interface simples para definição de
 cenários de larga escala \cite{santana_17}. O simulador tem como objetivo
 simular vários cenários complexos de Cidades Inteligentes.
@@ -20,17 +20,17 @@ características herdadas do modelo de atores, que é implementado pelo
 \textit{Erlang}, são: paralelismo, execução distribuída, tolerância a falhas e
 protocolo de comunicação \cite{santana_17}.
 
-O simulador foi implementado em cima do simulador de âmbito geral
-\textit{Sim-Diasca}. A Figura \ref{fig:simulator_architecture} apresenta a
-arquitetura do simulador, onde em azul estão os diferentes tipos de agentes
-que podem existir na simulação e em vermelho a definição dos cenários de
-Cidades Inteligentes, tudo isso sendo executado no topo do simulador
-\textit{Sim-Diasca}.
+O simulador foi implementado por Eduardo Zambom Santana, doutorando de nosso
+grupo de pesquisa, em cima do simulador de âmbito geral \textit{Sim-Diasca}. A
+Figura \ref{fig:simulator_architecture} apresenta a arquitetura do simulador,
+onde, em azul, estão os diferentes tipos de agentes que podem existir na
+simulação e, em vermelho, a definição dos cenários de Cidades Inteligentes,
+tudo isso sendo executado no topo do simulador \textit{Sim-Diasca}.
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.5\textwidth]{figures/Arquitetura.pdf}
-	\caption{Arquitetura do simulador InterSCSimulator}
+	\caption{Arquitetura do InterSCSimulator}
 	\label{fig:simulator_architecture}
 \end{figure}
 
@@ -44,9 +44,34 @@ através de gráficos.
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.7\textwidth]{figures/Components.pdf}
-	\caption{Componentes do simulador InterSCSimulator}
+	\caption{Componentes do InterSCSimulator}
 	\label{fig:simulator_components}
 \end{figure}
+
+Como entrada o simulador recebe três arquivos XML. O \textit{config.xml} contém
+parâmetros da simulação, sendo eles o total da simulação, o formato do arquivo
+de saída e o caminho para o diretório contendo os outros arquivos de entrada e
+para geração do arquivo de saída. O grafo representando a infraestrutura
+rodoviária da cidade é descrito no arquivo \textit{map.xml}, nesse grafo as
+vias são correspondentes as arestas e as esquinas entre uma ou mais vias aos
+nós. E por fim, as viagens a serem simuladas são especificadas no arquivo
+\textit{trips.xml}, cada viagem contendo o seu tempo de início, modo de
+transporte, origem e destino. Todas as ações realizadas pelos agentes na
+simulação são salvos no arquivo \textit{output.xml}, podendo haver quatro
+ações possíveis: 1) início de viagem, 2) saída de uma via, 3) entrada em uma
+via, e 4) chegada ao destino final. O tempo, a localização e o modo de
+transporte utilizado pelo agente são registrados quando essas ações são salvas.
+
+No trabalho desenvolvido por Eduardo Zambom Santana foi desenvolvido um
+simulador de larga escala, que já foi capaz de simular mais de 4 milhões de
+agentes se movendo pela cidade de São Paulo~\cite{santana_17}. Os modos de
+transportes suportados até então são carro, ônibus, metrô e a pé. Neste
+trabalho pretendemos adicionar novos cenários envolvendo, inclusive, outro
+domínio de cidades. E para realizar a integração com a plataforma InterSCity
+foi adicionado um novo modo para publicação de eventos da simulação de modo
+assíncrono, podendo surgir a necessidade de implementação de outros meios de
+comunicação no decorrer da pesquisa.
+
 
 \section{Plataforma InterSCity}
 \label{sec:interscity}
@@ -56,32 +81,33 @@ microserviços que visa permitir a pesquisa colaborativa, desenvolvimento e
 experimentos em Cidades Inteligentes~\cite{arthur_17}. A plataforma foi
 desenvolvida baseada em uma arquitetura de referência para plataformas de
 Cidades Inteligentes~\cite{santana_2016}, ela provê um conjunto de serviços
-alto-nível baseado em núvem para gerenciar recursos \textit{IoT} (Internet das
-Coisas) heterogêneos~\cite{arthur_17}.
+alto-nível baseado em nuvem para gerenciar recursos de \textit{IoT}
+heterogêneos~\cite{arthur_17}.
 
-A plataforma visa atacar dois principais problemas arquiteturais para
-desenvolver uma plataforma de alta qualidade e que possa ser usada na prática
-no contexto de Cidades Inteligentes: escalabilidade e
-evolutibilidade~\cite{arthur_17}. Escalabilidade é necessário pelo fato da
-mesma ter que interagir com um grande número de dispositivos \textit{IoT}
-espalhados pela cidade, milhões de usuários e um grande tráfego de dados. Como
-as cidades mudam constantemente, a questão da evolutibilidade é essencial, já
-que requisitos podem surgir ou mudar a qualquer momento e evoluir a plataforma
-não deve ser um empecilho. Para resolver esses dois problemas apresentados
-foram adotadas as seguintes estratégias~\cite{arthur_17}:
+O projeto InterSCity visa atacar dois dos principais problemas arquiteturais no
+desenvolvimento de uma plataforma de alta qualidade que possa ser usada na
+prática no contexto de Cidades Inteligentes: escalabilidade e evolução do
+software~\cite{arthur_17}. Escalabilidade é necessária pelo fato da plataforma
+ter que interagir com um grande número de dispositivos \textit{IoT} espalhados
+pela cidade, milhões de usuários e um grande tráfego de dados. Como as cidades
+mudam constantemente, a questão da evolução é essencial, já que requisitos
+podem surgir ou mudar a qualquer momento e adaptar a plataforma a fim de
+incorporar novas funcionalidades não deve ser um empecilho. Para resolver esses
+dois problemas apresentados, foram adotadas as seguintes
+estratégias~\cite{arthur_17}:
 
 \begin{itemize}
 	\item Modularidade via microsserviços
 	\item Modelos e dados distribuídos
 	\item Evolução descentralizada
-	\item Reuso de projetos \textit{open source}
+	\item Reuso de projetos de software livre
 	\item Adoção de padrões abertos
 	\item Comunicação síncrona e assíncrona
-	\item Serviços \textit{stateless}, que não mantêm estado
+	\item Serviços livres de estado
 \end{itemize}
 
-A Figura \ref{fig:platform_architecture} apresentada a arquitetura da
-plataforma InterSCSity. Atualmente, a mesma é composta de 6 microsserviços:
+A Figura \ref{fig:platform_architecture} apresenta a arquitetura da
+plataforma InterSCSity. Atualmente, ela é composta de 6 microsserviços:
 \textit{Resource Adaptor}, oferece uma abstração para comunicação com os
 dispositivos \textit{IoT}; \textit{Data Collector}, responsável por coletar os
 dados dos sensores conectados; \textit{Actuator Controller}, oferece uma
@@ -89,9 +115,7 @@ interface para atuação junto aos dispositivos de \textit{IoT} com tais
 capacidades; \textit{Resource Catalog}, possui dados estáticos dos recursos da
 cidade cadastrados; \textit{Resource discovery}. provê um serviço de descoberta
 de recursos; e \textit{Resource Viewer}, disponibiliza uma visualização simples
-dos recursos da cidade. A plataforma visa facilitar a manipulação da
-infraestrutura de \textit{IoT} da cidade por aplicações desenvolvidas para a
-cidade.
+dos recursos da cidade. 
 
 \begin{figure}[ht]
 	\centering
@@ -103,16 +127,22 @@ cidade.
 A comunicação entre esses microsserviços pode se dar de maneira síncrona ou
 assíncrona dependendo da situação. A comunicação síncrona é feita via API
 \textit{Restful}, ou seja, requisições \textit{HTTP}; e a assíncrona se dá via
-\textit{RabbitMQ}, uma implementação do protocolo \textit{AMQP}, onde o
-objetivo desse protocolo é criar um padrão aberto para troca de mensagens
-assíncronas interoperável e de larga escala~\cite{vinoski_2006}. A principal
-vantagem dele é permitir que o \textit{broker} de mensagens faça as decisões de
-roteamento, não necessitando a aplicação ter conhecimento desse
-processo~\cite{vinoski_2006}.
+\textit{RabbitMQ}, uma implementação do protocolo \textit{AMQP}. O
+objetivo do protocolo \textit{AMQP} é criar um padrão aberto para troca de
+mensagens assíncronas interoperável e de larga escala~\cite{vinoski_2006}. A
+principal vantagem desse protocolo é permitir que o \textit{broker} de
+mensagens tome as decisões de roteamento, não necessitando a aplicação ter
+conhecimento desse processo~\cite{vinoski_2006}.
 
-A plataforma traz uma abstração chamada \textit{Recurso}, que representa um
+A plataforma traz uma abstração chamada \textit{Resource}, que representa um
 recurso real da cidade, como ônibus, hospital, paradas de ônibus. Cada um
-desses \textit{Recursos} possuem \textit{Capacidades}, que pode ser de
+desses \textit{Resources} possuem \textit{Capabilities}, que pode ser de
 sensoriamento ou atuação, usualmente vinculados a algum tipo dispositivo
 \textit{IoT}, como capacidade de medir temperatura ou capacidade de mudar o
 estado de um semáforo.
+
+No capítulo a seguir será apresentado a estratégia utilizada para integração do
+InterSCSimulator e da plataforma InterSCity no contexto de procura de vagas de
+estacionamento ao término de viagens de carro. Essa integração vem sendo
+utilizada para a realização de testes de desempenho do serviço de descoberta de
+recursos da plataforma com um cenário realista e de larga escala.
