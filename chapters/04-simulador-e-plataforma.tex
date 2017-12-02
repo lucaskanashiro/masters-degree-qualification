@@ -1,10 +1,9 @@
 \chapter{O InterSCSimulator e a Plataforma InterSCity}
 \label{cap:simulador-e-plataforma}
 
-Neste capítulo, apresentaremos em mais detalhes sobre a arquitetura e
-especificidades do InterSCSimulator e da plataforma InterSCity. O entendimento
-do funcionamento de ambos será importante para a apresentação da integração a
-ser realizada.
+Neste capítulo, apresentaremos em mais detalhes a arquitetura e especificidades
+do InterSCSimulator e da plataforma InterSCity. O entendimento do funcionamento
+de ambos será importante para a apresentação da integração a ser realizada.
 
 \section{InterSCSimulator}
 
@@ -48,19 +47,19 @@ através de gráficos.
 	\label{fig:simulator_components}
 \end{figure}
 
-Como entrada o simulador recebe três arquivos XML. O \textit{config.xml} contém
-parâmetros da simulação, sendo eles o total da simulação, o formato do arquivo
-de saída e o caminho para o diretório contendo os outros arquivos de entrada e
-para geração do arquivo de saída. O grafo representando a infraestrutura
-rodoviária da cidade é descrito no arquivo \textit{map.xml}, nesse grafo as
-vias são correspondentes as arestas e as esquinas entre uma ou mais vias aos
-nós. E por fim, as viagens a serem simuladas são especificadas no arquivo
-\textit{trips.xml}, cada viagem contendo o seu tempo de início, modo de
+Como entrada, o simulador recebe três arquivos XML. O \textit{config.xml} contém
+parâmetros da simulação, sendo eles o tempo total da simulação, o formato do
+arquivo de saída e o caminho para o diretório contendo os outros arquivos de
+entrada e para geração do arquivo de saída. O grafo representando a
+infraestrutura rodoviária da cidade é descrito no arquivo \textit{map.xml},
+nesse grafo as vias são correspondentes as arestas e as esquinas entre duas ou
+mais vias aos nós. E por fim, as viagens a serem simuladas são especificadas no
+arquivo \textit{trips.xml}, cada viagem contendo o seu tempo de início, modo de
 transporte, origem e destino. Todas as ações realizadas pelos agentes na
-simulação são salvos no arquivo \textit{output.xml}, podendo haver quatro
-ações possíveis: 1) início de viagem, 2) saída de uma via, 3) entrada em uma
-via, e 4) chegada ao destino final. O tempo, a localização e o modo de
-transporte utilizado pelo agente são registrados quando essas ações são salvas.
+simulação são salvos no arquivo \textit{output.xml}, podendo haver quatro ações
+possíveis: 1) início de viagem, 2) saída de uma via, 3) entrada em uma via, e
+4) chegada ao destino final. O tempo, a localização e o modo de transporte
+utilizado pelo agente são registrados quando essas ações são salvas.
 
 No trabalho desenvolvido por Eduardo Zambom Santana foi desenvolvido um
 simulador de larga escala, que já foi capaz de simular mais de 4 milhões de
@@ -77,7 +76,7 @@ comunicação no decorrer da pesquisa.
 \label{sec:interscity}
 
 A plataforma InterSCity é um projeto de código aberto, baseado em
-microserviços que visa permitir a pesquisa colaborativa, desenvolvimento e
+microsserviços que visa permitir a pesquisa colaborativa, desenvolvimento e
 experimentos em Cidades Inteligentes~\cite{arthur_17}. A plataforma foi
 desenvolvida baseada em uma arquitetura de referência para plataformas de
 Cidades Inteligentes~\cite{santana_2016}, ela provê um conjunto de serviços
@@ -113,7 +112,7 @@ dispositivos \textit{IoT}; \textit{Data Collector}, responsável por coletar os
 dados dos sensores conectados; \textit{Actuator Controller}, oferece uma
 interface para atuação junto aos dispositivos de \textit{IoT} com tais
 capacidades; \textit{Resource Catalog}, possui dados estáticos dos recursos da
-cidade cadastrados; \textit{Resource discovery}. provê um serviço de descoberta
+cidade cadastrados; \textit{Resource discovery}, provê um serviço de descoberta
 de recursos; e \textit{Resource Viewer}, disponibiliza uma visualização simples
 dos recursos da cidade. 
 

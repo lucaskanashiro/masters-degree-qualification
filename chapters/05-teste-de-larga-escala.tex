@@ -29,7 +29,7 @@ disponível.
 
 Com a disponibilização desse ambiente para a realização de testes de
 desempenho, auxiliaremos desenvolvedores de sistemas e aplicações para Cidades
-Inteligentes a encontrarem gargalos antes de os mesmos impactarem de alguma
+Inteligentes a encontrarem gargalos antes deles impactarem de alguma
 forma a cidade. Esses gargalos poderão estar relacionados tanto com a
 implementação quanto com a implantação do sistema.  Consultas ao banco de dados
 não otimizadas, mal gerenciamento de conexões abertas com outras aplicações e
@@ -65,9 +65,9 @@ escala são potenciais soluções para facilitar a realização de testes de
 desempenho. Para realizar esses testes em sistemas e aplicações para Cidades
 Inteligentes, simuladores devem ser capazes de simular dispositivos de
 \textit{IoT} que monitorem e atuem no contexto da cidade; possuir modelos que
-representam o ambiente urbano de maneira realista, representando toda a
-dinâmica e peculiaridades da cidade; gerar massa de dados na escala da cidade;
-e conseguir se comunicar com os sistemas usando os seus respectivos protocolos.
+representam o ambiente urbano de maneira realista, demonstrando toda a dinâmica
+e peculiaridades da cidade; gerar massa de dados na escala da cidade; e
+conseguir se comunicar com os sistemas usando os seus respectivos protocolos.
 Com isso, o simulador será capaz de gerar o ambiente necessário para realização
 dos testes. Simuladores já vêm sendo usados para teste de cenários complexos em
 outras áreas de pesquisa \cite{mclaren_1992} \cite{mccown_1996}
@@ -135,9 +135,9 @@ pontos passíveis de melhoria no decorrer do trabalho, onde é necessário
 encontrar modelos que representem melhor a realidade.
 
 A partir dessa implementação foi possível realizar simulações contemplando
-questões de mobilidade, inclusive a busca por vagas de estacionamento por
-carros ao final de suas viagens. Uma das dificuldades para realizar a simulação
-desse novo cenário é a necessidade de saber previamente onde cada agente que
+questões de mobilidade, inclusive carros buscando por vagas de estacionamento
+ao final de suas viagens. Uma das dificuldades para realizar a simulação desse
+novo cenário é a necessidade de saber previamente onde cada agente que
 representa um carro irá estacionar. Isso porque mais de um agente não pode ter
 como destino a mesma vaga de estacionamento enquanto outro a estiver ocupando,
 o que leva a uma complexidade maior na geração dos arquivos de entrada. Esse
@@ -178,7 +178,7 @@ cenário de simulação desse porte. Para o último passo, foi implementado no
 simulador a publicação de eventos via \textit{RabbitMQ}, mesmo protocolo
 utilizado pela plataforma.
 
-A integração consistiu na utilização do microserviço \textit{Resource
+A integração consistiu na utilização do microsserviço \textit{Resource
 Discovery} para encontrar a vaga de estacionamento mais próxima do destino da
 viagem de cada carro, assim como a atualização do estado da vaga. Para a
 utilização do serviço de descoberta provido pelo \textit{Resource Discovery}
@@ -193,8 +193,8 @@ vias.
 A Figura \ref{fig:descoberta} apresenta a integração realizada para utilização
 do serviço de descoberta provido pela plataforma InterSCity.  Para isso foi
 utilizado um agente externo chamado \textit{Parking Spot Discoverer}, que fez o
-papel de um middleware entre os dois sistemas. O uso desse \textit{middleware}
-se fez necessário para que a simulação exerça a carga que aplicações exerceriam
+papel de um middleware entre os dois sistemas. O uso desse middleware se fez
+necessário para que a simulação exerça a carga que aplicações exerceriam
 utilizando o protocolo \textit{HTTP} para acessar a API \textit{Restful}. Como
 requisições \textit{HTTP} são síncronas, a realização das mesmas dentro da
 simulação atrasaria consideravelmente a sua finalização, já que bloquearia a
@@ -417,9 +417,9 @@ código de retorno. Um pouco mais de 10\% das requisições foram respondidas sem
 sucesso, sendo que esses erros aconteceram devido a \textit{timeouts} do
 serviço da plataforma. Acreditamos que isso ocorreu pelo fato da máquina
 utilizada para implantação da plataforma possuir poucos recursos
-computacionais. Todavia, pode representar um gargalo na plataforma mesmo com
-uma carga de pequena escala. Essa hipótese está sendo investigada nos testes de
-desempenho de maior escala que estamos realizando.
+computacionais. Todavia, isso pode representar um gargalo na plataforma mesmo
+com uma carga de pequena escala. Essa hipótese está sendo investigada nos
+testes de desempenho de maior escala que estamos realizando.
 
 \begin{figure}[ht]
 	\centering
@@ -466,7 +466,7 @@ contexto conseguimos estressar a plataforma, onde requisições foram respondidas
 com erro (\textit{timeout}) mesmo diante de uma carga pequena. Estamos
 trabalhando para a realização desse mesmo teste de desempenho em maior escala
 (com 467744 vagas e 9329 veículos realizando trajetos de 6h às 9h da manhã em
-São Paulo), com isso pretendemos identificar verdadeiros gargalos da plataforma
+São Paulo), com isso, pretendemos identificar verdadeiros gargalos da plataforma
 e solucioná-los. Para isso estamos automatizando uma implantação mais realista
 no \textit{Google Cloud Platform}, utilizando algumas vantagens não exploradas
 como a escalabilidade automática (\textit{auto-scaling}) dos microserviços da
