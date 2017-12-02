@@ -9,31 +9,58 @@ infraestrutura de \textit{IoT}, quanto de aplicações que utilizariam a
 plataforma.
 
 Um teste exploratório de desempenho foi realizado e apresentado na Seção
-\ref{sec:resultados}, levando em consideração o novo cenário de simulação
-envolvendo a movimentação de carros na cidade e a busca de vagas de
-estacionamento ao final da viagem apresentado na Seção \ref{sec:simulation}.
+\ref{sec:resultados}, levando em consideração o cenário de simulação envolvendo
+a movimentação de carros na cidade e a busca de vagas de estacionamento ao
+final da viagem apresentado na Seção \ref{sec:simulation}.
 
 
-%\section{Plano de Trabalho}
-
-O plano de trabalho dessa pesquisa possui três tarefas principais: I)
+Visando atingir o objetivo de definir um mecanismo para integração de
+diferentes domínios de Cidades Inteligentes envolvendo o InterSCSimulator e a
+plataforma InterSCity, as seguintes tarefas devem ser realizadas: I)
 implementação de outro domínio de Cidades Inteligentes no simulador
-InterSCSimulator; II) realização de novos testes de desempenho na plataforma
-InterSCity, incluindo cenários envolvendo atuação na cidade; e III) definição
-de mecanismo para integração de domínios de Cidades Inteligentes entre
-simulador InterSCSimulator e a plataforma InterSCity.
+InterSCSimulator; II) integrar esse novo domínio a plataforma InterSCity; III)
+validar nova integração através de novos testes de desempenho de larga escala;
+e IV) abstrair conceitos utilizados nas duas integrações realizadas, e com isso
+definir o mecanismo para integração de domínios de Cidades Inteligentes entre
+o simulador e a plataforma.
+
+%O plano de trabalho dessa pesquisa possui três tarefas principais: I)
+%implementação de outro domínio de Cidades Inteligentes no simulador
+%InterSCSimulator; II) realização de novos testes de desempenho na plataforma
+%InterSCity, incluindo cenários envolvendo atuação na cidade; e III) definição
+%de mecanismo para integração de domínios de Cidades Inteligentes entre
+%simulador InterSCSimulator e a plataforma InterSCity.
 
 O desenvolvimento de um novo domínio de Cidades Inteligentes no simulador é
 importante para nos depararmos com novos desafios de integração entre domínios.
-Será implementado um novo domínio na área de saúde pública, onde pessoas serão
-atendidas dependendo da especialidade e gravidade. Tal domínio trabalhará em
-conjunto com situações de mobilidade já existente, gerando cenários de
-simulação mais realistas e complexos. Nesse domínio serão simuladas pessoas
-saindo de casa, com o objetivo de utilizar o serviço de saúde pública, o fluxo
-de pessoas dentro desse estabelecimento de saúde, e a volta dos pacientes para
-casa.
+Será implementado um novo domínio na área de saúde, onde pessoas serão
+atendidas dependendo de suas necessidades. Tal domínio trabalhará em conjunto
+com situações de mobilidade já existente, gerando cenários de simulação mais
+realistas e complexos. Nesse domínio serão simuladas pessoas saindo de casa, em
+direção a estabelecimentos de saúde, e o fluxo de pessoas dentro deles. Para a
+locomoção das pessoas, utilizaremos o domínio de mobilidade já existente no
+simulador.  Pretendemos adicionar ao simulador o controle do número de vagas
+dos estabelecimentos de saúde e o fluxo de pacientes. Um exemplo seria um
+paciente indo em direção a um estabelecimento de saúde, entretanto, ao chegar
+no recinto o paciente recebe a informação que não há vagas, e por isso
+necessita se deslocar para o estabelecimento mais próximo que também realize o
+mesmo tipo de procedimento e tenha vaga disponível. Entender essa dinâmica dos
+pacientes e impacto na mobilidade das cidades, podem auxiliar gestores na
+tomada de decisões, como o melhor local para construção de um novo hospital.
 
-Com esse novo cenário de simulação envolvendo mobilidade e serviço de saúde,
+Utilizaremos dados de internação hospitalar que obtivemos através da Secretaria
+de Saúde da Cidade de São Paulo para a realização de testes de desempenho de
+larga escala nesse contexto. Nesse conjunto de dados sabemos o centróide do
+setor censitário da residência do paciente e o centro de saúde que foi
+atendido, assim como o procedimento realizado, urgência, doença, data de
+entrada e saída, dentre outros. Além disso temos dados do paciente, como idade
+e sexo. Após uma análise realizada, percebemos que muitos pacientes acabam
+precisando praticamente atravessar a cidade para realizar alguns procedimentos
+relativamente simples. Esse deslocamento para o uso do serviço de saúde acaba
+impactando na mobilidade da cidade, por exemplo, auxiliando na geração de
+congestionamentos e lotação do serviço de transporte público.
+
+Com esse cenário de simulação envolvendo mobilidade e serviço de saúde,
 pretende-se evoluir o mecanismo de integração já existente (apresentado na
 Seção \ref{sec:integration}) visando a realização de novos testes e
 experimentos de desempenho na plataforma. Com esse novo estudo de caso
@@ -43,25 +70,22 @@ Por fim, após a integração da plataforma e do simulador envolvendo os dois
 cenários apresentados esperamos definir um mecanismo para futuras integrações
 de outros domínios de Cidades Inteligentes. Tais integrações permitirão a
 realização de diferentes testes de desempenho de larga escala com carga
-realista da própria plataforma ou aplicações que a utilizem.
+realista na plataforma e suas aplicações.
 
 \section{Contribuições Esperadas}
 
 Com este trabalho esperamos contribuir com um mecanismo para viabilização de
-testes de desempenho de larga escala e realista no contexto de Cidades
-Inteligentes. A seguir são apresentadas as contribuições técnicas (\textbf{CT})
-e científicas (\textbf{CC}) esperadas com esse trabalho.
+testes de desempenho de larga escala no contexto de Cidades Inteligentes. A
+seguir são apresentadas as contribuições técnicas (\textbf{CT}) e científicas
+(\textbf{CC}) esperadas com esse trabalho.
 
 \begin{itemize}
 
-\item \textbf{CT1}: Implementação de novo domínio de Cidades Inteligentes no
-simulador InterSCSimulator. O domínio a ser implementado será o de serviço de
-saúde como apresentado anteriormente.
+\item \textbf{CT1}: Implementação de novo domínio de Cidades Inteligentes
+(saúde) no InterSCSimulator.
 
-\item \textbf{CT2}: Integração do simulador InterSCSimulator e da plataforma
-InterSCity. Ambos serão integrados com o que diz respeito aos cenários de
-simulação suportados pelo simulador, permitindo a realização de testes e
-experimentos de desempenho.
+\item \textbf{CT2}: Integração do InterSCSimulator e da plataforma
+InterSCity, permitindo a realização de testes e experimentos de desempenho.
 
 \item \textbf{CC1}: Definição e simulação de cenário envolvendo mobilidade e
 serviço de saúde de uma cidade. Não encontramos trabalhos que realizassem esse
@@ -75,9 +99,9 @@ com o intuito de prestar melhores serviços para os cidadãos, fugindo dos silos
 verticais.
 
 \item \textbf{CC3}: Definição de mecanismo para integração de novos domínios de
-Cidades Inteligentes entre o simulador InterSCSimulator e a plataforma
-InterSCity. Esse mecanismo visa auxiliar futuros testes e experimentos de
-desempenho da plataforma e aplicações.
+Cidades Inteligentes entre o InterSCSimulator e a plataforma InterSCity. Esse
+mecanismo visa auxiliar futuros testes e experimentos de desempenho da
+plataforma e aplicações.
 
 \end{itemize}
 
@@ -104,8 +128,8 @@ respectivos prazos.
 \label{tab:cronograma}
 \end{table}
 
-A implementação do novo domínio de simulação envolvendo saúde pública no
-InterSCSimulator é o próximo passo desta pesquisa. Nesse cenário visamos
+A implementação do novo domínio de simulação envolvendo o serviço de saúde no
+InterSCSimulator é o próximo passo desta pesquisa. Nesse cenário, visamos
 simular cidadãos saindo de suas casas e se movendo na cidade com o intuito de
 realizar algum procedimento médico em algum centro de saúde. Esse novo domínio
 influenciará o modelo de simulação de mobilidade já existente, onde essa
